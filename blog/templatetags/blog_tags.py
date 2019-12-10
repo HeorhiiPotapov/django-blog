@@ -1,0 +1,22 @@
+from django.db.models import Count
+from ..models import Post
+from django import template
+
+register = template.Library()
+
+
+@register.simple_tag
+def total_posts():
+    return Post.objects.filter(status='Published').count()
+
+
+@register.inclusion_tag('blog/post/latest_posts.html')
+def show_latest_posts(count=10):
+    latest = Post.objects.filter(status='Published')
+    latest_posts = latest.order_by('-publish')[:count]
+    return {'latest_posts': latest_posts}
+
+
+@register.simple_tag
+def get_most_commented_posts(count=5):
+    return Post.objects.annotate(total_comments=Count('comments')).order_by('-total_comments')[:count]
