@@ -1,0 +1,14 @@
+.post_item {
+    border-bottom: 1px solid gray;
+    margin-bottom: 40px;
+}
+
+.post_item p small {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.profile-image {
+    max-width: 85px;
+    max-height: 85px;
+}
