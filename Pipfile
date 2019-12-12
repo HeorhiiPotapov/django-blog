@@ -13,6 +13,7 @@ pillow = "*"
 social-auth-app-django = "*"
 gunicorn = "*"
 django-heroku = "*"
+django-crispy-forms = "*"
 
 [requires]
 python_version = "3.7"

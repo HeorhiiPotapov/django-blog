@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}{{ post.title }}{% endblock title %}
 {% block content %}
     <h1>{{ post.title }}</h1>
@@ -12,12 +13,32 @@
     </p>
     <p>{{ post.body|linebreaks }}</p>
 
+    <div class="media bg-light mb-5">
+        <img class="rounded-circle profile-image mr-3 mt-2 ml-3" src="{{ post.author.profile.image.url }}" alt="">
+        <div class="media-body mt-2">
+            <h5>{{ post.author }}</h5>
+            <p>!!!Author Description!!!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae,
+                reiciendis dolor error tenetur odio assumenda, facere consequatur
+                ad quis numquam. Vitae temporibus rerum aliquid, quasi cupiditate
+                qui id perferendis libero.
+            </p>
+        </div>
+    </div>
+
     <h2>Similar posts</h2>
-    <div class="row">
+    <div class="row mb-5">
         {% for post in similar_posts %}
             <div class="col-lg-3">
-                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                <div class="card h-100 items-align-center">
+                    <div class="card-body">
+                        <a class="card-title" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    </div>
+                </div>
             </div>
+            <!-- <div class="col-lg-3">
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </div> -->
         {% empty %}
             There are no similar posts yet.
         {% endfor %}
@@ -27,12 +48,16 @@
         <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
     {% endwith %}
     {% for comment in comments %}
-        <div class="comment">
-            <p class="info">
-                Comment {{ forloop.counter }} by {{ comment.name }}
-                {{ comment.created }}
-            </p>
-            {{ comment.body|linebreaks }}
+        <div class="media comment border mt-4">
+            <img class="rounded-circle comment-image mr-3 mt-2" src="{{ post.author.profile.image.url }}" alt=""
+            style="height: 45px; width: 45px;">
+            <div class="media-body">
+                <p class="info">
+                    <small>Comment {{ forloop.counter }} by {{ comment.name }}
+                    {{ comment.created }}</small>
+                </p>
+                {{ comment.body|linebreaks }}
+            </div>
         </div>
     {% empty %}
         <p>There are no comments yet.</p>
@@ -40,9 +65,9 @@
     {% if new_comment %}
         <h3>Your comment has been added.</h3>
     {% else %}
-        <h2>Add new comment</h2>
-        <form action="." method="post">
-            {{ comment_form.as_p }}
+        <h2 class="mt-5">Add new comment</h2>
+        <form action="." method="post" class="mb-5">
+            {{ comment_form|crispy }}
             {% csrf_token %}
             <button type="submit" value="Add comment">new comment</button>
         </form>

@@ -1,13 +1,20 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <img class="rounded-circle profile-image" src="{{ user.profile.image.url }}" alt="">
-    <form action="." method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        <input type="submit" name="" value="Update">
-    </form>
-    <div class="mt-4">
-        <a href="{% url 'password_change' %}">Change password</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="rounded-circle profile-image" src="{{ user.profile.image.url }}" alt="">
+            <form action="." method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form|crispy }}
+                {{ profile_form.as_p }}
+                <input type="submit" name="" value="Update">
+            </form>
+            <div class="mt-4">
+                <a href="{% url 'password_change' %}">Change password</a>
+            </div>
+        </div>
     </div>
+</div>
 {% endblock content %}

@@ -1,0 +1,49 @@
+<footer class="footer font-small pt-4">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase">Footer Content</h5>
+        <p>Here you can use rows and columns to organize your footer content.</p>
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Authentication</h5>
+        <ul class="list">
+          {% if request.user.is_authenticated %}
+              <li>
+                <a href="{% url 'logout' %}">Logout</a>
+              </li>
+              <li>
+                <a href="{% url 'profile' %}">Profile</a>
+              </li>
+          {% else %}
+              <li>
+                <a href="{% url 'login' %}">Login</a>
+              </li>
+              <li>
+                <a href="{% url 'register' %}">Register</a>
+              </li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Site Links</h5>
+        <ul class="list">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="/">Become an author</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:George Potapov</div>
+</footer>

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'account.apps.AccountConfig',
     'taggit',
+    'crispy_forms',
     'social_django',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -153,5 +154,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('AUTH_GOOGLE_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('AUTH_GOOGLE_SECRET')
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 django_heroku.settings(locals())

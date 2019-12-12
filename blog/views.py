@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Count
-# from django.views.generic import ListView
+from django.views.generic import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Post, Comment
 from .forms import CommentForm
 from taggit.models import Tag
+from django.db.models import Q
 
 
 def post_list(request, tag_slug=None):
@@ -77,3 +78,16 @@ def post_detail(request, year, month, day, post):
         'similar_posts': similar_posts
     }
     return render(request, template_name, context)
+
+
+class SearchView(ListView):
+    model = Post
+    template_name = 'blog/search.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        posts = Post.objects.filter(status='Published')
+        object_list = posts.filter(
+            Q(title__icontains=query) | Q(body__icontains=query)
+        )
+        return object_list

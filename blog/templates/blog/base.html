@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/1402883464.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 
     <title>{% block title %}{% endblock %}</title>
@@ -19,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-9 border-right mt-3 pl-5 pr-5">
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
@@ -29,7 +30,7 @@
             {% endif %}
             {% block content %}{% endblock %}
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 mt-3 border-right">
             <h2>Last Posts</h2>
             <p>some content must be here with {% total_posts %} posts</p>
             {% show_latest_posts %}
@@ -51,6 +52,8 @@
         </div>
     </div>
 </div>
+
+{% include 'blog/footer.html' %}
 
 
 
