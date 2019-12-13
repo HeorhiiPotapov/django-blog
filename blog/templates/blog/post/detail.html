@@ -7,8 +7,8 @@
     <p class="tags">
         Tags:
         {% for tag in post.tags.all %}
-            <a href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
-            {% if not forloop.last %}, {% endif %}
+            <a class="badge badge-success" href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+            <!-- {% if not forloop.last %}, {% endif %} -->
         {% endfor %}
     </p>
     <p>{{ post.body|linebreaks }}</p>
@@ -48,17 +48,11 @@
         <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
     {% endwith %}
     {% for comment in comments %}
-        <div class="media comment border mt-4">
-            <img class="rounded-circle comment-image mr-3 mt-2" src="{{ post.author.profile.image.url }}" alt=""
-            style="height: 45px; width: 45px;">
-            <div class="media-body">
-                <p class="info">
-                    <small>Comment {{ forloop.counter }} by {{ comment.name }}
-                    {{ comment.created }}</small>
-                </p>
-                {{ comment.body|linebreaks }}
-            </div>
-        </div>
+        <p class="info">
+            <small>Comment {{ forloop.counter }} by {{ comment.name }}
+            {{ comment.created }}</small>
+        </p>
+        {{ comment.body|linebreaks }}
     {% empty %}
         <p>There are no comments yet.</p>
     {% endfor %}
@@ -69,7 +63,7 @@
         <form action="." method="post" class="mb-5">
             {{ comment_form|crispy }}
             {% csrf_token %}
-            <button type="submit" value="Add comment">new comment</button>
+            <button class="btn btn-info" type="submit" value="Add comment">new comment</button>
         </form>
     {% endif %}
 {% endblock content %}
