@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
-from django.conf import settings
 
 
 # need to pipenv install pytz
@@ -22,7 +21,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Draft')
     tags = TaggableManager()
-    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='likes')
+    likes = models.ManyToManyField(User, blank=True, related_name='likes')
 
     class Meta:  # sort ol Post Model by publish parameter
         ordering = ['-publish']
