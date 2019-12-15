@@ -11,6 +11,12 @@
             <!-- {% if not forloop.last %}, {% endif %} -->
         {% endfor %}
     </p>
+    {% if is_liked %}
+        <p>{{ post.likes.count }} <a href="{{ post.get_like_url }}">Like</a></p>
+    {% else %}
+        <p>{{ post.likes.count }} <a href="{{ post.get_like_url }}">Dislike</a></p>
+    {% endif %}
+
     <p>{{ post.body|linebreaks }}</p>
 
     <div class="media bg-light mb-5">
@@ -47,15 +53,29 @@
     {% with comments.count as total_comments %}
         <h2>{{ total_comments }} comment{{ total_comments|pluralize }}</h2>
     {% endwith %}
-    {% for comment in comments %}
-        <p class="info">
-            <small>Comment {{ forloop.counter }} by {{ comment.name }}
-            {{ comment.created }}</small>
-        </p>
-        {{ comment.body|linebreaks }}
-    {% empty %}
-        <p>There are no comments yet.</p>
-    {% endfor %}
+    <div class="row mt-4">
+        <div class="col-lg-8">
+            {% for comment in comments %}
+                    <div class="media comment-section mb-3 bg-light pr-2">
+                        <img class="rounded-circle comment-author-img ml-3 mt-2 mr-3"
+                            src="{{ comment.user.profile.image.url }}">
+                        <div class="media-body">
+                            <div class="comment-metadata">
+                                <p class="comment_username mt-2 border-bottom">
+                                    {{ comment.user }}
+                                    <small class="comment_timestamp text-muted ml-2">
+                                        {{ comment.created|date:"F d, Y" }}
+                                    </small>
+                                </p>
+                            </div>
+                            <p class="comment_body">{{ comment.body }}</p>
+                        </div>
+                    </div>
+            {% empty %}
+                <p>There are no comments yet.</p>
+            {% endfor %}
+        </div>
+    </div>
     {% if new_comment %}
         <h3>Your comment has been added.</h3>
     {% else %}

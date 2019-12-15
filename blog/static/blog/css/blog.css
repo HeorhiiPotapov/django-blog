@@ -26,6 +26,11 @@
     max-width: 85px;
 }
 
+.comment-author-img {
+    height: 60px;
+    width: 60px;
+}
+
 .footer {
     background-color: #563d7c;
     color: white;

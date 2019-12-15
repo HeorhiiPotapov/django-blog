@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from django.conf import settings
 
 
 # need to pipenv install pytz
@@ -21,6 +22,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Draft')
     tags = TaggableManager()
+    likes = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='likes')
 
     class Meta:  # sort ol Post Model by publish parameter
         ordering = ['-publish']
@@ -36,11 +38,20 @@ class Post(models.Model):
                              self.slug
                              ])
 
+    def get_like_url(self):
+        return reverse('like',
+                       args=[self.publish.year,
+                             self.publish.strftime('%m'),
+                             self.publish.strftime('%d'),
+                             self.slug
+                             ])
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # name = models.CharField(max_length=80)
+    # email = models.EmailField()
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
