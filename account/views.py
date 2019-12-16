@@ -3,7 +3,6 @@ from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 # from .models import Profile
 from django.contrib.auth.decorators import login_required
-from blog.models import Post
 
 
 def register(request):
