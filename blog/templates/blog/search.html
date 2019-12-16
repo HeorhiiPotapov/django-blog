@@ -16,6 +16,8 @@
                 {% endfor %}
             </p>
             <p><small>Published {{ post.publish }} by {{ post.author }}</small></p>
+            <p>{{ post.comments.count }} active comment{{ post.comments.count|pluralize }}</p>
+            <p><i class="far fa-thumbs-up">{{ post.likes.count }}</i></p>
             <p>{{ post.body|markdown|truncatewords_html:30 }}<a href="{{ post.get_absolute_url }}">Read more</a></p>
         </div>
     {% endfor %}
