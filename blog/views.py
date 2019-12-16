@@ -16,6 +16,7 @@ from django.http import HttpResponse
 def post_list(request, tag_slug=None):
     # desable to show posts with status='Draft'
     object_list = Post.objects.filter(status='Published')
+    # sidebar_tags = Post.tags.all()
     tag = None
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
@@ -35,12 +36,14 @@ def post_list(request, tag_slug=None):
         'page': page,
         'posts': posts,
         'tag': tag,
+        # 'sidebar_tags': sidebar_tags
     }
     return render(request, template_name, context)
 
 
 def post_detail(request, year, month, day, post):
     object_list = Post.objects.filter(status='Published')
+    # sidebar_tags = Post.tags.all()
     post = get_object_or_404(Post, slug=post,
                              status='Published',
                              publish__year=year,
@@ -92,7 +95,8 @@ def post_detail(request, year, month, day, post):
         'comments': comments,
         'comment_form': comment_form,
         'similar_posts': similar_posts,
-        'is_liked': is_liked
+        'is_liked': is_liked,
+        # 'sidebar_tags': sidebar_tags
     }
     return render(request, template_name, context)
 
@@ -108,6 +112,11 @@ class SearchView(ListView):
             Q(title__icontains=query) | Q(body__icontains=query)
         )
         return object_list
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(SearchView, self).get_context_data(**kwargs)
+    #     context['sidebar_tags'] = Post.tags.all()
+    #     return context
 
 
 class LikeRedirect(RedirectView):
@@ -133,6 +142,7 @@ class LikeRedirect(RedirectView):
 
 
 def contact(request):
+    # sidebar_tags = Post.tags.all()
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -146,8 +156,13 @@ def contact(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('send_mail_success')
-    return render(request, "blog/contact.html", {'form': form})
+    context = {
+        # 'sidebar_tags': sidebar_tags,
+        'form': form
+    }
+    return render(request, "blog/contact.html", context)
 
 
 def send_mail_success(request):
+    # sidebar_tags = Post.tags.all()
     return render(request, 'blog/send_mail_success.html')

@@ -3,6 +3,7 @@ from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 # from .models import Profile
 from django.contrib.auth.decorators import login_required
+from blog.models import Post
 
 
 def register(request):
@@ -33,9 +34,11 @@ def profile(request):
         profile_form = ProfileUpdateForm(instance=request.user.profile)
     context = {
         'user_form': user_form,
-        'profile_form': profile_form
+        'profile_form': profile_form,
     }
     return render(request, 'account/profile.html', context)
+
+# Comment.objects.filter(user=1)
 
 
 # from django.contrib.auth import authenticate, login

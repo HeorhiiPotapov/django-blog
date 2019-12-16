@@ -49,6 +49,12 @@
                     <p><a href="{% url 'post_feed' %}">Subscribe to my RSS feed</a></p>
                 </li>
             </ul>
+            <h2>Tags</h2>
+            {% get_sidebar_tags as sidebar_tags %}
+            {% for tag in sidebar_tags %}
+                <a class="badge badge-success" href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+                <!-- {% if not forloop.last %}, {% endif %} -->
+            {% endfor %}
         </div>
     </div>
 </div>
