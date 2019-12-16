@@ -11,4 +11,6 @@ urlpatterns = [
     path('feed/', LatestPostFeed(), name='post_feed'),
     path('search/', SearchView.as_view(), name='search'),
     path('<year>/<month>/<day>/<post>/like/', views.LikeRedirect.as_view(), name='like'),
+    path('contact/', views.contact, name='contact'),
+    path('success/', views.send_mail_success, name='send_mail_success'),
 ]

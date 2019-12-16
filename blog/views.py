@@ -1,13 +1,16 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count
 from django.views.generic import ListView, RedirectView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .models import Post
-from .forms import CommentForm
+from .models import Post, Comment
+from .forms import CommentForm, ContactForm
 from taggit.models import Tag
 from django.db.models import Q
 from django.contrib import messages
+# for sending emails
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 def post_list(request, tag_slug=None):
@@ -31,16 +34,9 @@ def post_list(request, tag_slug=None):
     context = {
         'page': page,
         'posts': posts,
-        'tag': tag
+        'tag': tag,
     }
     return render(request, template_name, context)
-
-
-# class PostListView(ListView):
-#     queryset = Post.objects.filter(status='Published')
-#     context_object_name = 'posts'
-#     paginate_by = 3
-#     template_name = 'blog/post/list.html'
 
 
 def post_detail(request, year, month, day, post):
@@ -50,11 +46,27 @@ def post_detail(request, year, month, day, post):
                              publish__year=year,
                              publish__month=month,
                              publish__day=day)
-    comments = post.comments.filter(active=True)
+    comments = post.comments.filter(active=True, parent__isnull=True)
     if request.method == 'POST':
         if request.user.is_authenticated:
             comment_form = CommentForm(data=request.POST)
             if comment_form.is_valid():
+                parent_obj = None
+                # get parent comment id from hidden input
+                try:
+                    # id integer e.g. 15
+                    parent_id = int(request.POST.get('parent_id'))
+                except:
+                    parent_id = None
+                # if parent_id has been submitted get parent_obj id
+                if parent_id:
+                    parent_obj = Comment.objects.get(id=parent_id)
+                    # if parent object exist
+                    if parent_obj:
+                        # create replay comment object
+                        replay_comment = comment_form.save(commit=False)
+                        # assign parent_obj to replay comment
+                        replay_comment.parent = parent_obj
                 new_comment = comment_form.save(commit=False)
                 new_comment.post = post
                 new_comment.user = request.user
@@ -100,8 +112,7 @@ class SearchView(ListView):
 
 class LikeRedirect(RedirectView):
     def get_redirect_url(self, year, month, day, post, *args, **kwargs):
-        slug = self.kwargs.get('slug')
-        print(slug)
+        # slug = self.kwargs.get('slug')
         post = get_object_or_404(Post, slug=post,
                                  status='Published',
                                  publish__year=year,
@@ -109,12 +120,34 @@ class LikeRedirect(RedirectView):
                                  publish__day=day)
         url_ = post.get_absolute_url()
         user = self.request.user
-        # is_liked = False
+        # need to add is_liked here if using ajax
+        is_liked = False
         if user.is_authenticated:
             if user in post.likes.all():
                 post.likes.remove(user)
-                # is_liked = False
+                is_liked = False
             else:
                 post.likes.add(user)
-                # is_liked = True
+                is_liked = True
         return url_
+
+
+def contact(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['bayjel13@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('send_mail_success')
+    return render(request, "blog/contact.html", {'form': form})
+
+
+def send_mail_success(request):
+    return render(request, 'blog/send_mail_success.html')
