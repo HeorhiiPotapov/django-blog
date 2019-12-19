@@ -52,7 +52,6 @@ def post_detail(request, year, month, day, post):
             comment_form = CommentForm(data=request.POST)
             if comment_form.is_valid():
                 parent_obj = None
-                # get parent comment id from hidden input
                 try:
                     parent_id = int(request.POST.get('parent_id'))
                 except:

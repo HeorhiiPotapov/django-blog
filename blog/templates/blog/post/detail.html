@@ -67,7 +67,17 @@
                             </p>
                         </div>
                         <p class="comment_body">{{ comment.body }}</p>
-                        {% include 'blog/comment_replay_modal.html' %}
+                        <div class="dropdown">
+                            <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">
+                                Replay
+                             </button>
+                            <form class="dropdown-menu p-2" action="." method="post">
+                                {{ comment_form|crispy }}
+                                {% csrf_token %}
+                                <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                                <input class="btn btn-primary" type="submit" value="Replay">
+                            </form>
+                        </div>
                     </div>
                 </div>
 
