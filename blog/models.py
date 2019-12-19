@@ -23,13 +23,13 @@ class Post(models.Model):
     tags = TaggableManager()
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
 
-    class Meta:  # sort ol Post Model by publish parameter
+    class Meta:
         ordering = ['-publish']
 
-    def __str__(self):  # readeble show this model in admin
+    def __str__(self):
         return self.title
 
-    def get_absolute_url(self):  # absolute url adress fo this model what include all arguments from view
+    def get_absolute_url(self):
         return reverse('post_detail',
                        args=[self.publish.year,
                              self.publish.strftime('%m'),

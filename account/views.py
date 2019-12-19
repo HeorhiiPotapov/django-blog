@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
-# from .models import Profile
+from blog.models import Comment, Post
+# from .models import Favorite
 from django.contrib.auth.decorators import login_required
 
 
@@ -20,6 +21,9 @@ def register(request):
 
 @login_required
 def profile(request):
+    last_comments = Comment.objects.filter(user=request.user).order_by('created')[:5]
+    comment_user = Comment.objects.filter(user=request.user)
+    favorite = Post.objects.filter(likes=request.user)
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
@@ -34,29 +38,8 @@ def profile(request):
     context = {
         'user_form': user_form,
         'profile_form': profile_form,
+        'comment_user': comment_user,
+        'last_comments': last_comments,
+        'favorite': favorite,
     }
     return render(request, 'account/profile.html', context)
-
-# Comment.objects.filter(user=1)
-
-
-# from django.contrib.auth import authenticate, login
-# from .forms import LoginForm
-# from django.http import HttpResponse
-# def user_login(request):
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         if form.is_valid():
-#             cd = form.cleaned_data
-#             user = authenticate(username=cd['username'], password=cd['password'])
-#             if user is not None:
-#                 if user.is_active:
-#                     login(request, user)
-#                     return HttpResponse('Authenticated successfully')
-#                 else:
-#                     return HttpResponse('Disabled account')
-#             else:
-#                 return HttpResponse('Invalid login')
-#     else:
-#         form = LoginForm()
-#     return render(request, 'account/login.html', {'form': form})

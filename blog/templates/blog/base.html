@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-9 border-right mt-3 pl-5 pr-5">
+        <div class="col-lg-9 col-sm-12 border-right mt-3 pl-4 pr-4">
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
@@ -51,10 +51,12 @@
             </ul>
             <h2>Tags</h2>
             {% get_sidebar_tags as sidebar_tags %}
-            {% for tag in sidebar_tags %}
-                <a class="badge badge-success" href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
-                <!-- {% if not forloop.last %}, {% endif %} -->
-            {% endfor %}
+            <div class="sidebar_tags mb-4">
+                {% for tag in sidebar_tags %}
+                    <a class="badge badge-success" href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+                    <!-- {% if not forloop.last %}, {% endif %} -->
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
