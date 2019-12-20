@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
 from blog.models import Comment, Post
-# from .models import Favorite
 from django.contrib.auth.decorators import login_required
 
 

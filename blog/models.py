@@ -22,6 +22,7 @@ class Post(models.Model):
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Draft')
     tags = TaggableManager()
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
+    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
 
     class Meta:
         ordering = ['-publish']

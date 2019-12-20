@@ -12,10 +12,10 @@
             <!-- {% if not forloop.last %}, {% endif %} -->
         {% endfor %}
     </p>
-    {% if is_liked %}
-        <p>{{ post.likes.count }} <a href="{{ post.get_like_url }}">Like</a></p>
-    {% else %}
+    {% if not is_liked %}
         <p>{{ post.likes.count }} <a href="{{ post.get_like_url }}">Dislike</a></p>
+    {% else %}
+        <p>{{ post.likes.count }} <a href="{{ post.get_like_url }}">Like</a></p>
     {% endif %}
 
     {{ post.body|markdown }}
