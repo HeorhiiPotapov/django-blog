@@ -14,7 +14,7 @@ class Post(models.Model):
     title = models.CharField(max_length=300)
     slug = models.SlugField(max_length=300, unique_for_date='publish')
     # unique_for_date make slug unique adding a publish date to url
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
+    author = models.ForeignKey(User, on_delete=models.CASCADE,)  # related_name='blog_posts'
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -32,19 +32,15 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail',
-                       args=[self.publish.year,
-                             self.publish.strftime('%m'),
-                             self.publish.strftime('%d'),
-                             self.slug
-                             ])
+                       args=[
+                           self.slug
+                       ])
 
     def get_like_url(self):
         return reverse('like',
-                       args=[self.publish.year,
-                             self.publish.strftime('%m'),
-                             self.publish.strftime('%d'),
-                             self.slug
-                             ])
+                       args=[
+                           self.slug
+                       ])
 
 
 class Comment(models.Model):
@@ -53,12 +49,18 @@ class Comment(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    active = models.BooleanField(default=True)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE,
-                               null=True, blank=True, related_name='replies')
+    # active = models.BooleanField(default=True)
+    # parent = models.ForeignKey('self', on_delete=models.CASCADE,
+    # null=True, blank=True, related_name='replies')
 
     class Meta:
         ordering = ['created']
 
-        def __str__(self):
-            return 'Comment by {} on {}'.format(self.user, self.post)
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.user, self.post)
+
+    def get_absolute_url(self):
+        return reverse('post_detail',
+                       args=[
+                           self.post.slug
+                       ])

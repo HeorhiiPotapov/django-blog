@@ -3,6 +3,10 @@
 {% load crispy_forms_tags %}
 {% block title %}{{ post.title }}{% endblock title %}
 {% block content %}
+    {% if post.image %}
+        <img class="w-100 mb-4" src="{{ post.image.url }}" alt=""
+        style="max-height: 400px; max-width: 800px;">
+    {% endif %}
     <h1>{{ post.title }}</h1>
     <p><small>Published {{ post.publish }} by {{ post.author }}</small></p>
     <p class="tags">
@@ -67,7 +71,16 @@
                             </p>
                         </div>
                         <p class="comment_body">{{ comment.body }}</p>
-                        <div class="dropdown">
+                        <a href="{% url 'comment_update' comment.id %}">update</a>
+                        <a href="{% url 'comment_delete' comment.id %}">delete</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p>There are no comments yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+                        <!-- <div class="dropdown">
                             <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">
                                 Replay
                              </button>
@@ -77,11 +90,9 @@
                                 <input type="hidden" name="parent_id" value="{{ comment.id }}">
                                 <input class="btn btn-primary" type="submit" value="Replay">
                             </form>
-                        </div>
-                    </div>
-                </div>
+                        </div> -->
 
-                {% for replay in comment.replies.all %}
+                <!-- {% for replay in comment.replies.all %}
                     <div class="media comment-section mb-3 ml-5 pr-2">
                         <img class="rounded-circle comment-author-img ml-3 mt-2 mr-3"
                             src="{{ replay.user.profile.image.url }}">
@@ -97,12 +108,7 @@
                             <p class="comment_body">{{ replay.body }}</p>
                         </div>
                     </div>
-                {% endfor %}
-            {% empty %}
-                <p>There are no comments yet.</p>
-            {% endfor %}
-        </div>
-    </div>
+                {% endfor %} -->
     {% if new_comment %}
         <h3>Your comment has been added.</h3>
     {% else %}

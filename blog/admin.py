@@ -22,8 +22,8 @@ admin.site.register(Post, PostAdmin)
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user', 'post', 'created', 'active')
-    list_filter = ('active', 'created', 'updated')
+    list_display = ('user', 'post', 'created')
+    list_filter = ('created', 'updated')
     search_fields = ('user', 'body')
 
 

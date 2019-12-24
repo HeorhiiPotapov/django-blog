@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count
-from django.views.generic import ListView, RedirectView
+from django.views.generic import ListView, RedirectView, UpdateView, DeleteView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Post, Comment
 from .forms import ContactForm, CommentForm
@@ -11,6 +11,8 @@ from django.contrib import messages
 # for sending emails
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def post_list(request, tag_slug=None):
@@ -39,28 +41,24 @@ def post_list(request, tag_slug=None):
     return render(request, template_name, context)
 
 
-def post_detail(request, year, month, day, post):
+def post_detail(request, slug):
     object_list = Post.objects.filter(status='Published')
-    post = get_object_or_404(Post, slug=post,
-                             status='Published',
-                             publish__year=year,
-                             publish__month=month,
-                             publish__day=day)
-    comments = post.comments.filter(active=True, parent__isnull=True)
+    post = get_object_or_404(Post, slug=slug)
+    comments = post.comments.all()  # filter(active=True, parent__isnull=True)
     if request.method == 'POST':
         if request.user.is_authenticated:
             comment_form = CommentForm(data=request.POST)
             if comment_form.is_valid():
-                parent_obj = None
-                try:
-                    parent_id = int(request.POST.get('parent_id'))
-                except:
-                    parent_id = None
-                if parent_id:
-                    parent_obj = Comment.objects.get(id=parent_id)
-                    if parent_obj:
-                        replay_comment = comment_form.save(commit=False)
-                        replay_comment.parent = parent_obj
+                # parent_obj = None
+                # try:
+                    # parent_id = int(request.POST.get('parent_id'))
+                # except:
+                    # parent_id = None
+                # if parent_id:
+                    # parent_obj = Comment.objects.get(id=parent_id)
+                    # if parent_obj:
+                        # replay_comment = comment_form.save(commit=False)
+                        # replay_comment.parent = parent_obj
                 new_comment = comment_form.save(commit=False)
                 new_comment.post = post
                 new_comment.user = request.user
@@ -91,6 +89,32 @@ def post_detail(request, year, month, day, post):
     return render(request, template_name, context)
 
 
+class CommentUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Comment
+    fields = ['body']
+
+    def test_func(self):
+        comment = self.get_object()
+        if self.request.user == comment.user:
+            return True
+        return False
+
+
+class CommentDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Comment
+
+    def get_success_url(self):
+        comment = self.get_object()
+        slug = comment.post.slug
+        return reverse_lazy('post_detail', kwargs={'slug': slug})
+
+    def test_func(self):
+        comment = self.get_object()
+        if self.request.user == comment.user:
+            return True
+        return False
+
+
 class SearchView(ListView):
     model = Post
     template_name = 'blog/search.html'
@@ -105,13 +129,9 @@ class SearchView(ListView):
 
 
 class LikeRedirect(RedirectView):
-    def get_redirect_url(self, year, month, day, post, *args, **kwargs):
+    def get_redirect_url(self, slug, *args, **kwargs):
         # slug = self.kwargs.get('slug')
-        post = get_object_or_404(Post, slug=post,
-                                 status='Published',
-                                 publish__year=year,
-                                 publish__month=month,
-                                 publish__day=day)
+        post = get_object_or_404(Post, slug=slug)
         url_ = post.get_absolute_url()
         user = self.request.user
         # need to add is_liked here if using ajax
