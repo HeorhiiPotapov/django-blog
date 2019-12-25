@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'taggit',
     'crispy_forms',
+    'storages',
     'social_django',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -152,5 +153,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('AUTH_GOOGLE_SECRET')
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = os.environ.get('MYSITE_BLOG_DROPBOX_TOKEN')
+DROPBOX_ROOT_PATH = '/'
 django_heroku.settings(locals())

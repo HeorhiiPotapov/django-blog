@@ -80,35 +80,6 @@
             {% endfor %}
         </div>
     </div>
-                        <!-- <div class="dropdown">
-                            <button class="btn btn-outline-info btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="True" aria-expanded="false">
-                                Replay
-                             </button>
-                            <form class="dropdown-menu p-2" action="." method="post">
-                                {{ comment_form|crispy }}
-                                {% csrf_token %}
-                                <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                                <input class="btn btn-primary" type="submit" value="Replay">
-                            </form>
-                        </div> -->
-
-                <!-- {% for replay in comment.replies.all %}
-                    <div class="media comment-section mb-3 ml-5 pr-2">
-                        <img class="rounded-circle comment-author-img ml-3 mt-2 mr-3"
-                            src="{{ replay.user.profile.image.url }}">
-                        <div class="media-body">
-                            <div class="comment-metadata">
-                                <p class="comment_username mt-2 border-bottom">
-                                    {{ replay.user }}
-                                    <small class="comment_timestamp text-muted ml-2">
-                                        {{ replay.created|date:"F d, Y" }}
-                                    </small>
-                                </p>
-                            </div>
-                            <p class="comment_body">{{ replay.body }}</p>
-                        </div>
-                    </div>
-                {% endfor %} -->
     {% if new_comment %}
         <h3>Your comment has been added.</h3>
     {% else %}

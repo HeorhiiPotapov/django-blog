@@ -44,21 +44,11 @@ def post_list(request, tag_slug=None):
 def post_detail(request, slug):
     object_list = Post.objects.filter(status='Published')
     post = get_object_or_404(Post, slug=slug)
-    comments = post.comments.all()  # filter(active=True, parent__isnull=True)
+    comments = post.comments.all()
     if request.method == 'POST':
         if request.user.is_authenticated:
             comment_form = CommentForm(data=request.POST)
             if comment_form.is_valid():
-                # parent_obj = None
-                # try:
-                    # parent_id = int(request.POST.get('parent_id'))
-                # except:
-                    # parent_id = None
-                # if parent_id:
-                    # parent_obj = Comment.objects.get(id=parent_id)
-                    # if parent_obj:
-                        # replay_comment = comment_form.save(commit=False)
-                        # replay_comment.parent = parent_obj
                 new_comment = comment_form.save(commit=False)
                 new_comment.post = post
                 new_comment.user = request.user
