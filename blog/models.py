@@ -49,9 +49,7 @@ class Comment(models.Model):
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # active = models.BooleanField(default=True)
-    # parent = models.ForeignKey('self', on_delete=models.CASCADE,
-    # null=True, blank=True, related_name='replies')
+    likes = models.ManyToManyField(User, blank=True, related_name='c_likes')
 
     class Meta:
         ordering = ['created']
@@ -63,4 +61,10 @@ class Comment(models.Model):
         return reverse('post_detail',
                        args=[
                            self.post.slug
+                       ])
+
+    def get_comment_like_url(self):
+        return reverse('c_like',
+                       args=[
+                           self.pk
                        ])

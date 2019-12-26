@@ -48,7 +48,7 @@
                 </div>
             </div>
         {% empty %}
-            There are no similar posts yet.
+            <p>There are no similar posts yet.</p>
         {% endfor %}
     </div>
     <h2>{{ post.comments.count }} active comment{{ post.comments.count|pluralize }}</h2>
@@ -73,6 +73,10 @@
                         <p class="comment_body">{{ comment.body }}</p>
                         <a href="{% url 'comment_update' comment.id %}">update</a>
                         <a href="{% url 'comment_delete' comment.id %}">delete</a>
+                        <a class="ml-5" href="{{ comment.get_comment_like_url }}">
+                            <i class="fas fa-heart" style="color: brown;"></i>
+                            {{ comment.likes.count }}
+                        </a>
                     </div>
                 </div>
             {% empty %}

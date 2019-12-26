@@ -136,6 +136,22 @@ class LikeRedirect(RedirectView):
         return url_
 
 
+class CommentLike(RedirectView):
+    def get_redirect_url(self, pk, *args, **kwargs):
+        comment = get_object_or_404(Comment, pk=pk)
+        url_ = comment.get_absolute_url()
+        user = self.request.user
+        is_liked = False
+        if user.is_authenticated:
+            if user in comment.likes.all():
+                comment.likes.remove(user)
+                comment_is_liked = False
+            else:
+                comment.likes.add(user)
+                comment_is_liked = True
+        return url_
+
+
 def contact(request):
     if request.method == 'GET':
         form = ContactForm()

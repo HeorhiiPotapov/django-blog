@@ -42,3 +42,4 @@ def profile(request):
         'favorite': favorite,
     }
     return render(request, 'account/profile.html', context)
+

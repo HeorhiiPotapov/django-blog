@@ -12,6 +12,7 @@ urlpatterns = [
     path('search/', views.SearchView.as_view(), name='search'),
     path('<str:slug>/', views.post_detail, name='post_detail'),
     path('<str:slug>/like/', views.LikeRedirect.as_view(), name='like'),
+    path('comment/<pk>/like/', views.CommentLike.as_view(), name='c_like'),
     path('updete_comment/<pk>/', views.CommentUpdate.as_view(), name='comment_update'),
     path('delete_comment/<pk>/', views.CommentDelete.as_view(), name='comment_delete'),
 ]
