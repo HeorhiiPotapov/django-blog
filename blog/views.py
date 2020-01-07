@@ -1,18 +1,17 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Count
-from django.views.generic import ListView, RedirectView, UpdateView, DeleteView
+from django.views.generic import ListView, RedirectView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .models import Post, Comment
-from .forms import ContactForm, CommentForm
+from .models import Post
+from .forms import ContactForm
+from comments.forms import CommentForm
 from taggit.models import Tag
 from django.db.models import Q
 from django.contrib import messages
 # for sending emails
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def post_list(request, tag_slug=None):
@@ -79,32 +78,6 @@ def post_detail(request, slug):
     return render(request, template_name, context)
 
 
-class CommentUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-    model = Comment
-    fields = ['body']
-
-    def test_func(self):
-        comment = self.get_object()
-        if self.request.user == comment.user:
-            return True
-        return False
-
-
-class CommentDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    model = Comment
-
-    def get_success_url(self):
-        comment = self.get_object()
-        slug = comment.post.slug
-        return reverse_lazy('post_detail', kwargs={'slug': slug})
-
-    def test_func(self):
-        comment = self.get_object()
-        if self.request.user == comment.user:
-            return True
-        return False
-
-
 class SearchView(ListView):
     model = Post
     template_name = 'blog/search.html'
@@ -136,22 +109,6 @@ class LikeRedirect(RedirectView):
         return url_
 
 
-class CommentLike(RedirectView):
-    def get_redirect_url(self, pk, *args, **kwargs):
-        comment = get_object_or_404(Comment, pk=pk)
-        url_ = comment.get_absolute_url()
-        user = self.request.user
-        is_liked = False
-        if user.is_authenticated:
-            if user in comment.likes.all():
-                comment.likes.remove(user)
-                comment_is_liked = False
-            else:
-                comment.likes.add(user)
-                comment_is_liked = True
-        return url_
-
-
 def contact(request):
     if request.method == 'GET':
         form = ContactForm()
@@ -175,6 +132,3 @@ def contact(request):
 def send_mail_success(request):
     return render(request, 'blog/send_mail_success.html')
 
-
-def become_author(request):
-    return render(request, 'blog/become_author.html')

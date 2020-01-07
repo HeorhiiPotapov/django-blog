@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib import messages
-from blog.models import Comment, Post
+from blog.models import Post
+from comments.models import Comment
 from django.contrib.auth.decorators import login_required
 
 

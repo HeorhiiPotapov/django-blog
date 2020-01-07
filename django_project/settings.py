@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'account.apps.AccountConfig',
+    'comments.apps.CommentsConfig',
     'taggit',
     'crispy_forms',
     'storages',

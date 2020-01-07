@@ -68,6 +68,7 @@ urlpatterns = [
     # =======================================================================
     path('', include('social_django.urls', namespace='social')),  # google auth
     # =======================================================================
+    path('comments/', include('comments.urls')),
     path('', include('blog.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
