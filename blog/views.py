@@ -98,14 +98,14 @@ class LikeRedirect(RedirectView):
         url_ = post.get_absolute_url()
         user = self.request.user
         # need to add is_liked here if using ajax
-        is_liked = False
+        # is_liked = False
         if user.is_authenticated:
             if user in post.likes.all():
                 post.likes.remove(user)
-                is_liked = False
+                # is_liked = False
             else:
                 post.likes.add(user)
-                is_liked = True
+                # is_liked = True
         return url_
 
 

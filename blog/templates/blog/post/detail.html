@@ -4,8 +4,8 @@
 {% block title %}{{ post.title }}{% endblock title %}
 {% block content %}
     {% if post.image %}
-        <img class="w-100 mb-4" src="{{ post.image.url }}" alt=""
-        style="max-height: 400px; max-width: 800px;">
+        <img class="w-100 mb-4" src="{{ post.image.url }}" alt="">
+        {% comment %}style="max-height: 400px; max-width: 800px;">{% endcomment %}
     {% endif %}
     <h1>{{ post.title }}</h1>
     <p><small>Published {{ post.publish }} by {{ post.author }}</small></p>

@@ -8,8 +8,8 @@
     {% for post in posts %}
         <div class="post_item">
             {% if post.image %}
-                <img class="w-100 mb-4" src="{{ post.image.url }}" alt=""
-                style="max-height: 400px; max-width: 800px;">
+                <img class="w-100 mb-4" src="{{ post.image.url }}" alt="">
+                {% comment %}style="max-height: 400px; max-width: 800px;">{% endcomment %}
             {% endif %}
             <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
             <p class="tags">
