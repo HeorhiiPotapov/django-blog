@@ -16,11 +16,10 @@
 </head>
 <body style="background: #f9f9f9 url('{% static 'blog/img/page-bg-1.jpg' %}')">
 
-{% include 'blog/navbar.html' %}
-
-<div class="container-fluid">
+<div class="container">  {#-fluid pl-lg-5 pr-lg-5#}
+    {% include 'blog/navbar.html' %}
     <div class="row">
-        <div class="col-lg-9 col-sm-12 border-right mt-3 pl-4 pr-4">
+        <div class="col-lg-8 col-sm-12 mt-3">
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }}">
@@ -30,32 +29,61 @@
             {% endif %}
             {% block content %}{% endblock %}
         </div>
-        <div class="col-lg-3 mt-3 border-right">
-            <h2>Last Posts</h2>
-            <p>some content must be here with {% total_posts %} posts</p>
+        <div class="col-lg-4 mt-3 sidebar">
+            <form class="input-group my-2 my-lg-0" action="{% url 'search' %}">
+                <input type="text" class="form-control" name="q" placeholder="Search">
+                <button class="btn my-sm-0 border" type="submit" style="background: #00ffff;"><i class="fas fa-search"></i></button>
+            </form>
+            <h5 class="title-bg">Last Posts</h5>
             {% show_latest_posts %}
-            <h2>Most commented posts</h2>
+            <h5 class="title-bg">Most popular</h5>
             {% get_most_commented_posts as most_commented_posts %}
-            <ul>
-                {% for post in most_commented_posts %}
-                    <li>
-                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-            <h2>Rss chanel</h2>
-            <ul>
-                <li>
-                    <p><a href="{% url 'post_feed' %}">Subscribe to my RSS feed</a></p>
-                </li>
-            </ul>
-            <h2>Tags</h2>
+            {% for post in most_commented_posts %}
+                <div class="media mb-2">
+                  <img src="{{ post.image.url }}" class="align-self-start m-2" alt="..." style="height: 80px; width: 80px;">
+                  <div class="media-body ml-2 mt-1">
+                      <a class="mt-2" href="{{ post.get_absolute_url }}" style="color: #222;">
+                          <p>{{ post.title }}</p>
+                      </a>
+                      <p class="mb-0"><small>{{ post.publish }}</small></p>
+                  </div>
+                </div>
+            {% endfor %}
+            <h5 class="title-bg">Last comments</h5>
+            {% get_latest_comments as latest_comments %}
+            {% for comment in latest_comments %}
+                <div class="media comment-section mb-2 pr-2">
+                    <img class="comment-author-img ml-2 mt-3 mr-3"
+                        src="{{ comment.user.profile.image.url }}">
+                    <div class="media-body">
+                        <div class="comment-metadata">
+                            <p class="comment_username mt-2 border-bottom">
+                                {{ comment.user }}
+                                <small class="comment_timestamp text-muted ml-2">
+                                    {{ comment.created|date:"F d, Y" }}
+                                </small>
+                            </p>
+                        </div>
+                        <p class="comment_body">{{ comment.body }}</p>
+                        <a href="{{ comment.post.get_absolute_url }}" style="color: #d8450b;">view post</a>
+                    </div>
+                </div>
+            {% endfor %}
+            <h5 class="title-bg">Rss chanel</h5>
+            <blockquote class="blockquote">
+              <p class="m-b-0"><a href="{% url 'post_feed' %}">Subscribe to my RSS feed</a></p>
+            </blockquote>
+            <h5 class="title-bg">Tags</h5>
             {% get_sidebar_tags as sidebar_tags %}
             <div class="sidebar_tags mb-4">
                 {% for tag in sidebar_tags %}
                     <a class="badge badge-success" href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
                     <!-- {% if not forloop.last %}, {% endif %} -->
                 {% endfor %}
+            </div>
+            <h5 class="title-bg">Video Preview</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Qp5KU-U9nII" allowfullscreen></iframe>
             </div>
         </div>
     </div>

@@ -1,24 +1,169 @@
-.navbar {
-    background-color: #563d7c;
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap&subset=cyrillic');
+
+.logo { margin-top:40px; }
+.logo img {
+	margin-right:15px;
+	height: 50px;
+	width: 50px;
+	color: #222;
+}
+.logo h5 {
+	display: inline-block;
+	text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0.5), 0 0 1px #fdfdfd;
+	font-family: "Oswald", sans-serif;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+.headline { margin-bottom:20px; }
+
+.row.header {margin-bottom: 30px;}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.logo, .navigation {text-align: center;}
+	.row.header {margin-bottom: 30px;}
+	.logo h5 {display: block;}
 }
 
-.fab {
-    font-size: 35px;
-    margin-right: 20px;
-    color: #fd7e14;
+.navigation {
+    margin-top:40px;
+    font-size:12px;
+	line-height:28px;
 }
-.fab:hover {
-    opacity: 0.7;
+
+.navigation .navbar {
+	float:right;
+	background: #f8f8f8;
+	/* background:#fff; */
+	border-bottom: 1px dotted #a9a9a9;
+	border-top: 1px dotted #a9a9a9;
 }
+.navbar .nav > li > a {
+	font-family: "Oswald", sans-serif;
+	font-weight: normal;
+	text-shadow: none;
+	text-transform:uppercase;
+	color: #222;
+	font-size:12px;
+	padding: 15px 15px 15px;
+}
+
+/* Portrait tablet */
+@media (min-width: 768px) and (max-width: 979px) {
+	.navbar .nav > li > a {padding: 10px 10px 10px;}
+}
+
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
+	color:#FFF;
+	background-color:#d8450b;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* ================= titles ================= */
+
+.title-bg {
+	text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0.5), 0 0 1px #fdfdfd;
+	font-family: "Oswald", sans-serif;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+.title-bg a {
+	color: #222;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+/* =============== post list item ================== */
 
 .post_item {
-    border-bottom: 1px solid gray;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
-.post_item p small {
-    font-style: italic;
-    opacity: 0.8;
+.post_item a {padding-top: 7px;}
+
+.post_item .title-bg {
+	background: #f8f8f8;
+    /* background:#fff; */
+	padding:10px 5px;
+	margin: 0px 0px 20px 0px;
+	border-bottom: 1px dotted #a9a9a9;
+	border-top: 1px dotted #a9a9a9;
+}
+
+.post_item_body {
+	background: #f8f8f8;
+
+    /* background: #fff; */
+    padding: 20px 15px 0 15px;
+}
+
+.post_item_body p i {
+	padding-right: 5px;
+}
+
+.post_item_body p a {
+	color: #d8450b;
+}
+
+.post_item_body p a:hover {
+	color: #222;
+	text-decoration: none;
+}
+
+.post_footer {
+	margin-top: 40px;
+}
+
+.post_footer p {
+    /* padding-top: 7px; */
+	margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+	border-left: 1px dotted #a9a9a9;
+    color:#d8450b;
+}
+
+.post_footer p i {
+    color: #222;
+    padding-right: 5px;
+}
+
+.post_footer .publish {
+    color: #222;
+}
+
+@media (max-width: 800px) {
+    .post_footer p {display: none;}
+}
+
+/* ==================== sidebar ======================== */
+
+.sidebar .title-bg {
+	background: #f8f8f8;
+
+    /* background:#fff; */
+	padding:10px 5px;
+	margin: 40px 0px 20px 0px;
+	border-bottom: 1px dotted #a9a9a9;
+	border-top: 1px dotted #a9a9a9;
+}
+
+.sidebar .title-bg:first-child{margin-top: 0;}
+
+.comment-section {
+    /* background:#fff; */
+}
+
+/* ========================= */
+
+.blockquote {
+    border-left: 5px dotted #222;
+    padding-left: 10px;
+    margin-left: 10px;
 }
 
 .profile-image {

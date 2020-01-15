@@ -24,7 +24,7 @@
 
     {{ post.body|markdown }}
 
-    <div class="media bg-light mb-5">
+    <div class="media mb-5">
         <img class="rounded-circle profile-image mr-3 mt-2 ml-3" src="{{ post.author.profile.image.url }}" alt="">
         <div class="media-body mt-2">
             <h5>{{ post.author }}</h5>
@@ -40,11 +40,15 @@
     <h2>Similar posts</h2>
     <div class="row mb-5">
         {% for post in similar_posts %}
-            <div class="col-lg-3 mb-2">
-                <div class="card h-100 items-align-center">
-                    <div class="card-body">
-                        <a class="card-title" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                    </div>
+            <div class="col-lg-3 col-sm-4 mb-2">
+                <div class="mb-3 h-100">
+                  <img src="{{ post.image.url }}" class="mb-4 w-100" alt="...">
+                  <div class="">
+                      <a href="{{ post.get_absolute_url }}">
+                          <h5>{{ post.title }}</h5>
+                      </a>
+                      <p class="mb-0"><small>{{ post.publish }}</small></p>
+                  </div>
                 </div>
             </div>
         {% empty %}

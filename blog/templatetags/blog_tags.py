@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from django.db.models import Count
 from ..models import Post
 from django import template
+from comments.models import Comment
 
 register = template.Library()
 
@@ -33,3 +34,8 @@ def get_sidebar_tags():
 @register.filter(name='markdown')
 def markdown_format(text):
     return mark_safe(markdown.markdown(text))
+
+
+@register.simple_tag
+def get_latest_comments(count=10):
+    return Comment.objects.all()[:count]
