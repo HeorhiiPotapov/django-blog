@@ -31,7 +31,6 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),
     # ===================================================================
     # authentication
     path('profile/', user_views.profile, name='profile'),
@@ -70,7 +69,8 @@ urlpatterns = [
     # end password_reset
     # =======================================================================
     # google auth
-    path('', views.home_page, name='home_page'),
+    # path('', views.home_page, name='home_page'),
+    path('', include('blog.urls')),
     path('', include('social_django.urls', namespace='social')),
     # =======================================================================
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
