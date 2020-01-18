@@ -7,6 +7,7 @@ from django.urls import reverse
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # email = models.EmailField()
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -21,10 +22,4 @@ class Comment(models.Model):
         return reverse('post_detail',
                        args=[
                            self.post.slug
-                       ])
-
-    def get_comment_like_url(self):
-        return reverse('c_like',
-                       args=[
-                           self.pk
                        ])

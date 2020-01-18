@@ -22,6 +22,8 @@ from blog.sitemaps import PostSitemap
 from django.contrib.auth import views as auth_views
 from account import views as user_views
 # from django.contrib.auth.views import logout_then_login
+from blog import views
+
 
 sitemaps = {
     'posts': PostSitemap,
@@ -29,6 +31,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
     # ===================================================================
     # authentication
     path('profile/', user_views.profile, name='profile'),
@@ -66,10 +69,10 @@ urlpatterns = [
          name='password_reset_complete'),
     # end password_reset
     # =======================================================================
-    path('', include('social_django.urls', namespace='social')),  # google auth
+    # google auth
+    path('', views.home_page, name='home_page'),
+    path('', include('social_django.urls', namespace='social')),
     # =======================================================================
-    path('comments/', include('comments.urls')),
-    path('', include('blog.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
 ]

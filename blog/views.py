@@ -14,6 +14,16 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 
 
+def home_page(request):
+    object_list = Post.objects.all()[:4]
+    template_name = 'blog/home_page.html'
+    context = {
+        'object_list': object_list,
+        'template_name': template_name,
+    }
+    return render(request, template_name, context)
+
+
 def post_list(request, tag_slug=None):
     # desable to show posts with status='Draft'
     object_list = Post.objects.filter(status='Published')
@@ -131,4 +141,3 @@ def contact(request):
 
 def send_mail_success(request):
     return render(request, 'blog/send_mail_success.html')
-
