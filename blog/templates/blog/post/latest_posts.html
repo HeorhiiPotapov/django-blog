@@ -1,27 +1,12 @@
-<!-- <ul> -->
-    {% for post in latest_posts %}
-        <div class="media mb-2">
-          <img src="{{ post.image.url }}" class="align-self-start m-2" alt="..." style="height: 80px; width: 80px;">
-          <div class="media-body ml-2 mt-1">
-              <a class="mt-2" href="{{ post.get_absolute_url }}" style="color: #222;">
-                  <p>{{ post.title }}</p>
-              </a>
-              <p class="mb-0"><small>{{ post.publish }}</small></p>
-          </div>
-        </div>
-        <!-- <div class="mb-3">
-          <img src="{{ post.image.url }}" class="mb-4 w-100" alt="...">
-          <div class="">
-              <a href="{{ post.get_absolute_url }}">
-                  <h5>{{ post.title }}</h5>
-              </a>
-              <p class="mb-0"><small>{{ post.publish }}</small></p>
-          </div>
-        </div> -->
-        <!-- <li>
-            <a href="{{ post.get_absolute_url }}">
-                {{ post.title }}
-            </a>
-        </li> -->
-    {% endfor %}
-<!-- </ul> -->
+
+{% for post in latest_posts %}
+    <div class="media mb-2">
+      <img src="{{ post.image.url }}" class="align-self-start m-2" alt="..." style="height: 80px; width: 80px;">
+      <div class="media-body ml-2 mt-1">
+          <a class="mt-2" href="{{ post.get_absolute_url }}" style="color: #222;">
+              <p>{{ post.title }}</p>
+          </a>
+          <p class="mb-0"><small>{{ post.publish }}</small></p>
+      </div>
+    </div>
+{% endfor %}
