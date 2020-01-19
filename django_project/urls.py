@@ -21,6 +21,7 @@ from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 from django.contrib.auth import views as auth_views
 from account import views as user_views
+# have question about this import
 # from django.contrib.auth.views import logout_then_login
 from blog import views
 
@@ -70,7 +71,8 @@ urlpatterns = [
     # =======================================================================
     # google auth
     # path('', views.home_page, name='home_page'),
-    path('', include('blog.urls')),
+    path('blog/', include('blog.urls')),
+    path('', views.home_page, name='home_page'),
     path('', include('social_django.urls', namespace='social')),
     # =======================================================================
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},

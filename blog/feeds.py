@@ -6,7 +6,7 @@ from .models import Post
 class LatestPostFeed(Feed):
     title = 'My blog'
     link = '/'
-    description = 'New post of my blog.'
+    description = 'New posts of my blog.'
 
     def items(self):
         return Post.objects.filter(status='Published').all()[:5]

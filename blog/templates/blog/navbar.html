@@ -9,6 +9,7 @@
         <div class="navbar">
             <ul class="nav">
                 <li><a href="/">Home</a></li>
+                <li><a href="{% url 'post_list' %}">Blog</a></li>
                 <li><a href="#">Galery</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
                 {% if request.user.is_authenticated %}
