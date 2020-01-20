@@ -17,6 +17,7 @@
                 <a class="btn btn-info pr-5 pl-5" href="{% url 'password_change' %}">Change password</a>
             </div>
         </div>
+
         <div class="col-lg-6">
             <h5 class="title-bg">Last comments</h5>
             {% for comment in last_comments %}
@@ -36,6 +37,7 @@
             {% endfor %}
         </div>
     </div>
+
     <div class="row mb-5">
         <div class="col-lg-12">
             <h5 class="title-bg">Favorite posts:</h5>

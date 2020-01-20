@@ -12,12 +12,15 @@ from django.contrib import messages
 # for sending emails
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 
 def home_page(request):
-    posts = Post.objects.all()[:5]
+    posts = Post.objects.all()[:6]
+    author = User.objects.all().first()
     template_name = 'blog/home_page.html'
     context = {
+        'author': author,
         'posts': posts,
     }
     return render(request, template_name, context)

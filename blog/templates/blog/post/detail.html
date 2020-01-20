@@ -29,21 +29,19 @@
         <img class="profile-image align-middle" src="{{ post.author.profile.image.url }}" alt="">
         <div class="media-body mt-2">
             <h5>About {{ post.author }}</h5>
-            <p>Теперь перелогинимся из текущего окружения в Openbox (выйдите из системы к меню ввода пароля и входа, нажмите на кнопку выбора окружения над полем и выберите openbox). Пред нами предстал серый фон и (возможно, если устанавливали) conky. Весь смысл openbox заключается в создании полностью стилизованного под себя окружения. Существует огромное количество допилок для openbox, самые основные будут приведены в этом руководстве. </p>
+            <p>{{ post.author.profile.description }}</p>
         </div>
     </div>
 
     <h4 class="similar_posts">Similar posts</h4>
     <div class="row mb-5">
         {% for post in similar_posts %}
-            <div class="col-lg-3 col-sm-4 mb-2">
-                <div class="mb-3 h-100">
+            <div class="col-lg-3 mb-2">
+                <div class="h-100">
                   <img src="{{ post.image.url }}" class="mb-4 w-100" alt="...">
-                  <div class="">
-                      <a href="{{ post.get_absolute_url }}">
-                          <h5>{{ post.title }}</h5>
-                      </a>
-                      <p class="mb-0"><small>{{ post.publish }}</small></p>
+                  <div class="similar_posts_body">
+                    <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                    <p class="mb-0"><small>{{ post.publish }}</small></p>
                   </div>
                 </div>
             </div>

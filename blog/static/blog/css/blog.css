@@ -119,6 +119,7 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
 
 .post_item_body {
 	background: #f8f8f8;
+	border-bottom: 1px dotted #a9a9a9;
 
     /* background: #fff; */
     padding: 20px 15px 0 15px;
@@ -184,6 +185,8 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
 .description {
 	background: #f8f8f8;
 	margin-bottom: 50px;
+	border-bottom: 1px dotted #a9a9a9;
+	border-top: 1px dotted #a9a9a9;
 }
 
 .description .media-body h5 {
@@ -204,6 +207,10 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
 	margin: 0px 0px 20px 0px;
 	border-bottom: 1px dotted #a9a9a9;
 	border-top: 1px dotted #a9a9a9;
+}
+
+.similar_posts_body h5 a {
+	color: #222;
 }
 
 .comment_form {
@@ -280,11 +287,66 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
     width: 60px;
 }
 
-.footer {
-    background-color: #563d7c;
-    color: white;
+
+/* homepage links */
+
+.social_links {margin-top: 60px;}
+
+.social_links a {color: #222;}
+
+.social_links a i {
+	font-size: 60px;
+	padding-top: 40px;
+	padding-right: 30px;
+	/* padding-left: 40px; */
 }
 
-.footer li a {
-    color: white;
+.fa-github {
+	padding-left: 0;
 }
+
+/**************************************
+/ Footer
+**************************************/
+.footer-container {
+	width:100%;
+	background:#333;
+	clear: both;
+ 	position: relative;
+ 	z-index: 10;
+}
+.footer-row { padding-top: 30px; padding-bottom: 30px;}
+.footer-col {color:#ababab; font-size: 11px;}
+.footer-col a {color:#dcdcdc; font-weight: bold;}
+.footer-col a:hover {color:#d8450b; text-decoration: none;}
+.footer-col h5, .footer-col strong {color:#f9f9f9; text-shadow:none;}
+.footer-col h5 {margin-bottom: 25px;}
+.footer-col ul {margin: 0px; padding-left: 0;}
+.footer-col ul li {list-style: none; padding-bottom: 20px;}
+.footer-col ul.post-list li {
+	border-bottom: 1px dashed #504f4f;
+	padding: 10px 0px;
+}
+/* All Mobile Sizes */
+@media only screen and (max-width: 767px) {
+	.footer-col {
+		clear:both;
+		overflow: auto;
+		margin-bottom: 20px;
+	}
+	.footer-sub .right {display: none;}
+}
+ul.img-feed li {
+	float: left;
+	margin: 0px 7px 7px 0px;
+	padding-bottom: 0px;
+}
+
+/* Portrait tablet */
+@media (min-width: 768px) and (max-width: 979px) {
+	ul.img-feed li:nth-last-child(-n+4) {display: none;}
+}
+
+/**** Sub Footer ****/
+.footer-sub {background: #1f1f1f; padding: 10px 0px;}
+.footer-sub div div span {padding: 0px 20px;}
