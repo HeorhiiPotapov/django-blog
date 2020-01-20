@@ -16,7 +16,7 @@ from django.contrib.auth.models import User
 
 
 def home_page(request):
-    posts = Post.objects.all()[:6]
+    posts = Post.objects.all()[:10]
     author = User.objects.all().first()
     template_name = 'blog/home_page.html'
     context = {

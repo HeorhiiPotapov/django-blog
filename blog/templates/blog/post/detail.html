@@ -20,7 +20,7 @@
                 <p class="publish ml-auto"><i class="far fa-calendar-check"></i>{{ post.publish }}</p>
                 <p><i class="fas fa-user"></i>{{ post.author }}</p>
                 <p><i class="fas fa-comment"></i>{{ post.comments.count }} comment{{ post.comments.count|pluralize }}</p>
-                <p><i class="far fa-thumbs-up"></i>{{ post.likes.count }}</p>
+                <p><a href="{{ post.get_like_url }}"><i class="far fa-thumbs-up"></i></a>{{ post.likes.count }}</p>
             </div>
         </div>
     </div>
@@ -77,7 +77,7 @@
             <form action="." method="post" class="mb-5">
                 {{ comment_form|crispy }}
                 {% csrf_token %}
-                <button class="btn btn-info" type="submit" value="Add comment">new comment</button>
+                <button class="btn btn-success" type="submit" value="Add comment">new comment</button>
             </form>
         </div>
     </div>

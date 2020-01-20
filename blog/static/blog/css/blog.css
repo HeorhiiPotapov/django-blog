@@ -298,7 +298,6 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
 	font-size: 60px;
 	padding-top: 40px;
 	padding-right: 30px;
-	/* padding-left: 40px; */
 }
 
 .fa-github {
@@ -316,16 +315,17 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
  	z-index: 10;
 }
 .footer-row { padding-top: 30px; padding-bottom: 30px;}
-.footer-col {color:#ababab; font-size: 11px;}
+.footer-col {color:#ababab; font-size: 13px;}
 .footer-col a {color:#dcdcdc; font-weight: bold;}
+.footer-col .fab {font-size: 40px; padding-right: 20px;}
 .footer-col a:hover {color:#d8450b; text-decoration: none;}
 .footer-col h5, .footer-col strong {color:#f9f9f9; text-shadow:none;}
 .footer-col h5 {margin-bottom: 25px;}
-.footer-col ul {margin: 0px; padding-left: 0;}
+.footer-col ul {margin: 0; padding-left: 0;}
 .footer-col ul li {list-style: none; padding-bottom: 20px;}
 .footer-col ul.post-list li {
 	border-bottom: 1px dashed #504f4f;
-	padding: 10px 0px;
+	padding: 10px 0;
 }
 /* All Mobile Sizes */
 @media only screen and (max-width: 767px) {
@@ -338,8 +338,8 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
 }
 ul.img-feed li {
 	float: left;
-	margin: 0px 7px 7px 0px;
-	padding-bottom: 0px;
+	margin: 0 7px 7px 0;
+	padding-bottom: 0;
 }
 
 /* Portrait tablet */
@@ -348,5 +348,5 @@ ul.img-feed li {
 }
 
 /**** Sub Footer ****/
-.footer-sub {background: #1f1f1f; padding: 10px 0px;}
-.footer-sub div div span {padding: 0px 20px;}
+.footer-sub {background: #1f1f1f; padding: 10px 0;}
+.footer-sub div div span {padding: 0 20px;}

@@ -19,13 +19,14 @@
                         <a href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}{% if not forloop.last %}, {% endif %}</a>
                     {% endfor %}
                 </p>
-                {{ post.body|markdown|truncatewords_html:50 }} <a href="{{ post.get_absolute_url }}">Read more</a>
+                {{ post.body|markdown|truncatewords_html:50 }}
+                <a class="carousel_text_right" href="{{ post.get_absolute_url }}"><i class="fas fa-plus-circle"></i><small>Read more</small></a>
 
                 <div class="d-flex post_footer">
                     <p class="publish ml-auto"><i class="far fa-calendar-check"></i>{{ post.publish }}</p>
                     <p><i class="fas fa-user"></i>{{ post.author }}</p>
                     <p><i class="fas fa-comment"></i>{{ post.comments.count }} comment{{ post.comments.count|pluralize }}</p>
-                    <p><i class="far fa-thumbs-up"></i>{{ post.likes.count }}</p>
+                    <p><a href="{{ post.get_like_url }}"><i class="far fa-thumbs-up"></i></a>{{ post.likes.count }}</p>
                 </div>
             </div>
         </div>
