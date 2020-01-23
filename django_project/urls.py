@@ -72,6 +72,7 @@ urlpatterns = [
     # google auth
     # path('', views.home_page, name='home_page'),
     path('blog/', include('blog.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', views.home_page, name='home_page'),
     path('', include('social_django.urls', namespace='social')),
     # =======================================================================
