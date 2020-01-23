@@ -19,7 +19,7 @@
                         <a href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}{% if not forloop.last %}, {% endif %}</a>
                     {% endfor %}
                 </p>
-                {{ post.body|markdown|truncatewords_html:50 }}
+                {% autoescape off %}{{ post.body|truncatewords_html:30 }}{% endautoescape %}
                 <a class="carousel_text_right" href="{{ post.get_absolute_url }}"><i class="fas fa-plus-circle"></i><small>Read more</small></a>
 
                 <div class="d-flex post_footer">
