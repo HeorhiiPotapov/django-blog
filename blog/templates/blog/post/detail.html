@@ -14,7 +14,7 @@
                     <a href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}{% if not forloop.last %}, {% endif %}</a>
                 {% endfor %}
             </p>
-            {% autoescape off %}{{ post.body }}{% endautoescape %}
+            {{ post.body|markdown }}
 
             <div class="d-flex post_footer">
                 <p class="publish ml-auto"><i class="far fa-calendar-check"></i>{{ post.publish }}</p>

@@ -1,5 +1,5 @@
-# import markdown
-# from django.utils.safestring import mark_safe
+import markdown
+from django.utils.safestring import mark_safe
 from django.db.models import Count
 from ..models import Post
 from django import template
@@ -31,9 +31,9 @@ def get_sidebar_tags():
     return Post.tags.all()
 
 
-# @register.filter(name='markdown')
-# def markdown_format(text):
-#     return mark_safe(markdown.markdown(text))
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown.markdown(text))
 
 
 @register.simple_tag

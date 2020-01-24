@@ -42,9 +42,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'account.apps.AccountConfig',
     'comments.apps.CommentsConfig',
+    'galery.apps.GaleryConfig',
 
-    'ckeditor',
-    'ckeditor_uploader',
     'taggit',
     'crispy_forms',
     'storages',
@@ -155,13 +154,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_HOST_PASSWORD')
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('AUTH_GOOGLE_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('AUTH_GOOGLE_SECRET')
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'None'
-    },
-}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'

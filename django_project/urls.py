@@ -46,8 +46,6 @@ urlpatterns = [
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view
          (template_name='account/password_change_done.html'),
          name='password_change_done'),
-    # path('logout_then_login/', logout_then_login,
-    #      name='logout_then_login'),
     # end authentication
     # ====================================================================
     # password_reset
@@ -69,10 +67,8 @@ urlpatterns = [
          name='password_reset_complete'),
     # end password_reset
     # =======================================================================
-    # google auth
-    # path('', views.home_page, name='home_page'),
     path('blog/', include('blog.urls')),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('galery/', include('galery.urls')),
     path('', views.home_page, name='home_page'),
     path('', include('social_django.urls', namespace='social')),
     # =======================================================================

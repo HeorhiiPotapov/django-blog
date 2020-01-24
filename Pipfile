@@ -17,7 +17,6 @@ django-crispy-forms = "*"
 markdown = "*"
 dropbox = "*"
 django-storages = "*"
-django-ckeditor = "*"
 
 [requires]
 python_version = "3.7"
