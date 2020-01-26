@@ -4,6 +4,7 @@ from django.db.models import Count
 from django.views.generic import ListView, RedirectView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Post
+from galery.models import Image
 from .forms import ContactForm
 from comments.forms import CommentForm
 from taggit.models import Tag
@@ -17,11 +18,13 @@ from django.contrib.auth.models import User
 
 def home_page(request):
     posts = Post.objects.all()[:10]
+    images = Image.objects.all()[:10]
     author = User.objects.all().first()
     template_name = 'blog/home_page.html'
     context = {
         'author': author,
         'posts': posts,
+        'images': images
     }
     return render(request, template_name, context)
 
@@ -143,3 +146,8 @@ def contact(request):
 
 def send_mail_success(request):
     return render(request, 'blog/send_mail_success.html')
+
+
+def features(request):
+    latest_posts = Post.objects.filter(status='Published')[:4]
+    return render(request, 'blog/features.html', {'latest_posts': latest_posts})

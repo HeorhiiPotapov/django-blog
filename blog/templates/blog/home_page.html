@@ -43,7 +43,7 @@
                 title for home page here</h4>
                 <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium vulputate magna sit amet blandit.</p>
                 <p><small>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. In sit amet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</small></p>
-                <a class="carousel_text_right" href="#"><i class="fas fa-plus-circle"></i><small>Read more</small></a>
+                <a class="carousel_text_right" href="{% url 'features' %}"><i class="fas fa-plus-circle"></i><small>Read more</small></a>
             </div>
         </div>
         <div class="row mt-5">
@@ -61,6 +61,23 @@
                     {% endif %}
                     <div class="post_item_body" style="border-bottom: 1px dotted #a9a9a9;">
                         <p>{{ post.title }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row ">
+            <div class="col-lg-12 latest_posts">
+                <h5 class="title-bg">Our latest photos</h5>
+            </div>
+        </div>
+        <div class="row justify-content-end mt-4">
+            {% for image in images %}
+                <div class="col-lg-3 mb-5">
+                    <a href="{{ image.get_absolute_url }}">
+                        <img class="w-100" src="{{ image.image.url }}" alt="" style="height: 180px;">
+                    </a>
+                    <div class="post_item_body" style="border-bottom: 1px dotted #a9a9a9;">
+                        <p>{{ image.name }}</p>
                     </div>
                 </div>
             {% endfor %}

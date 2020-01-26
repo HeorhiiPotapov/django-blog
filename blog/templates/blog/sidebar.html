@@ -1,0 +1,46 @@
+{% load blog_tags %}
+
+<form class="input-group my-2 my-lg-0" action="{% url 'search' %}">
+    <input type="text" class="form-control" name="q" placeholder="Search">
+    <button class="btn my-sm-0 border" type="submit" style="background: #00ffff;"><i class="fas fa-search"></i></button>
+</form>
+<h5 class="title-bg">Last Posts</h5>
+{% show_latest_posts %}
+<h5 class="title-bg">Most popular</h5>
+{% get_most_commented_posts as most_commented_posts %}
+{% for post in most_commented_posts %}
+    <div class="media mb-2">
+      <img src="{{ post.image.url }}" class="align-self-start m-2" alt="..." style="height: 80px; width: 80px;">
+      <div class="media-body ml-2 mt-1">
+          <a class="mt-2" href="{{ post.get_absolute_url }}" style="color: #222;">
+              <p>{{ post.title }}</p>
+          </a>
+          <p class="mb-0"><small>{{ post.publish }}</small></p>
+      </div>
+    </div>
+{% endfor %}
+<h5 class="title-bg">Last comments</h5>
+{% get_latest_comments as latest_comments %}
+{% for comment in latest_comments %}
+    <div class="comment">
+        <img src="{{ comment.user.profile.image.url }}" alt="Image" />
+        <span class="comment-name">{{ comment.user }}</span>
+        <span class="comment-date">{{ comment.created|date:"F d, Y" }}</span>
+        <div class="comment-content">{{ comment.body|linebreaks }}</div>
+    </div>
+{% endfor %}
+<h5 class="title-bg">Rss chanel</h5>
+  <i class="fas fa-rss"></i><p class="d-inline-block"><a class="rss_chanel" href="{% url 'post_feed' %}">Subscribe to my RSS feed</a></p>
+<h5 class="title-bg">Tags</h5>
+{% get_sidebar_tags as sidebar_tags %}
+<div class="sidebar_tags">
+    <i class="fas fa-tags"></i>
+    {% for tag in sidebar_tags %}
+        <a href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</div>
+<h5 class="title-bg">Video Preview</h5>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Qp5KU-U9nII" allowfullscreen></iframe>
+</div>

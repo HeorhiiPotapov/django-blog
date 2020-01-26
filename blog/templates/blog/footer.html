@@ -34,7 +34,12 @@
             </div>
             <div class="col-lg-3 footer-col">
                 <h5>Flickr Photos</h5>
-                <p>There are no images yet.</p>
+				{% get_latest_images as images %}
+				{% for image in images %}
+					<a href="{{ image.get_absolute_url }}">
+						<img class="mr-1 mb-2" src="{{ image.image.url }}" alt="" style="height: 50px; widht: 50px;">
+					</a>
+				{% endfor %}
             </div>
         </div>
 
@@ -44,7 +49,11 @@
                     <div class="span6"><span class="left">Copyright 2019 George Potapov. All rights reserved.</span></div>
                     <div class="span6">
                         <span class="right">
-                        <a href="/">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="{% url 'post_list' %}">Blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Galery</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="{% url 'contact' %}">Contact</a>
+	                        <a href="/">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+							<a href="{% url 'post_list' %}">Blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+							<a href="{% url 'images_list' %}">Galery</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+							<a href="{% url 'features' %}">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+							<a href="{% url 'contact' %}">Contact</a>
                         </span>
                     </div>
                 </div>

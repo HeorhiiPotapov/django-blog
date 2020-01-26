@@ -20,7 +20,7 @@
     {% include 'blog/navbar.html' %}
     <div class="row my-5">
         {% for image in images %}
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-4">
                 <a href="{{ image.get_absolute_url }}">
                     <img class="w-100" src="{{ image.image.url }}" alt="" style="height: 180px;">
                 </a>

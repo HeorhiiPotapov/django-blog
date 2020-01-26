@@ -11,9 +11,8 @@ class Post(models.Model):
         ('Draft', 'Draft'),
         ('Published', 'Published'),
     )
-    title = models.CharField(max_length=300)
-    slug = models.SlugField(max_length=300, unique_for_date='publish')
-    # unique_for_date make slug unique adding a publish date to url
+    title = models.CharField(max_length=300, db_index=True)
+    slug = models.SlugField(max_length=300, unique_for_date='publish', db_index=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,)  # related_name='blog_posts'
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
