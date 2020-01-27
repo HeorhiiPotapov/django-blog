@@ -10,13 +10,13 @@
                 <input type="submit" value="Register">
             </form>
             <div class="mt-4">
-                <p>Already have an account? You can login <a href="{% url 'login' %}">Here</a></p>
+                <p>{% trans 'Already have an account? You can login' %} <a href="{% url 'login' %}">{% trans 'Here' %}</a></p>
             </div>
         </div>
         <div class="col-lg-6">
-            <p>Or you can login with Google</p>
+            <p>{% trans 'Or you can login with Google' %}</p>
             <div>
-                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">Login with google</a>
+                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">{% trans 'Login with google' %}</a>
             </div>
         </div>
     </div>

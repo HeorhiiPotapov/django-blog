@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 10:29+0200\n"
+"POT-Creation-Date: 2020-01-27 15:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,81 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: account/templates/account/login.html:8
+msgid "You can login with your username or email adress"
+msgstr "для входа введите имя пользователя или адресс электронной почты"
+
+#: account/templates/account/login.html:16
+msgid "Dont have account? You can register"
+msgstr "Еще не создан профиль? вы можете зарегистрироваться"
+
+#: account/templates/account/login.html:16
+#: account/templates/account/logout.html:6
+#: account/templates/account/registration.html:13
+msgid "Here"
+msgstr "Здесь"
+
+#: account/templates/account/login.html:19
+msgid "Forgot your password?"
+msgstr "Забыли пароль?"
+
+#: account/templates/account/login.html:19
+msgid "Reset password"
+msgstr "Восстановление пароля"
+
+#: account/templates/account/login.html:23
+#: account/templates/account/registration.html:17
+msgid "Or you can login with Google"
+msgstr "Также вы можете войти с помощью учетной записи Google"
+
+#: account/templates/account/login.html:25
+#: account/templates/account/registration.html:19
+msgid "Login with google"
+msgstr "Войти через Google"
+
+#: account/templates/account/logout.html:4
+msgid "You have been loged out."
+msgstr "Вы вышли из своего профиля."
+
+#: account/templates/account/logout.html:6
+msgid "You can login"
+msgstr "Вы можете войти"
+
+#: account/templates/account/password_change_done.html:4
+msgid "Password have been changed"
+msgstr "Пароль был изменен"
+
+#: account/templates/account/password_reset_complete.html:4
+#, fuzzy
+#| msgid "Your email been successfuly send!"
+msgid "Your password has been successfully reset."
+msgstr "Ваше сообщение было успешно отправлено"
+
+#: account/templates/account/password_reset_done.html:3
+msgid "Email has been send to your email adress"
+msgstr "Письмо отправлено на ваш почтовый адресс"
+
+#: account/templates/account/profile.html:9
+msgid "Profile info"
+msgstr "Информация профиля"
+
+#: account/templates/account/profile.html:18
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: account/templates/account/profile.html:23
+#: blog/templates/blog/sidebar.html:22
+msgid "Last comments"
+msgstr "Последние комментарии"
+
+#: account/templates/account/profile.html:44
+msgid "Favorite posts:"
+msgstr "Популярные статьи:"
+
+#: account/templates/account/registration.html:13
+msgid "Already have an account? You can login"
+msgstr "Уже есть учетная запись? Тогда вы можете войти"
 
 #: blog/templates/blog/contact.html:5
 msgid "Contact Us"
@@ -100,10 +175,6 @@ msgstr "Последнии публикации"
 #: blog/templates/blog/sidebar.html:9
 msgid "Most popular"
 msgstr "Наиболее популярные"
-
-#: blog/templates/blog/sidebar.html:22
-msgid "Last comments"
-msgstr "Последние комментарии"
 
 #: blog/templates/blog/sidebar.html:32
 msgid "Rss chanel"

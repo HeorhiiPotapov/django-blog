@@ -1,11 +1,12 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 {% load blog_tags %}
 {% block content %}
 <div class="container-fluid">
     <div class="row mb-5">
         <div class="col-lg-6">
-            <h5 class="title-bg">Profile info</h5>
+            <h5 class="title-bg">{% trans 'Profile info' %}</h5>
             <img class="rounded-circle profile-image" src="{{ user.profile.image.url }}" alt="">
             <form action="." method="post" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -14,12 +15,12 @@
                 <input type="submit" name="" value="Update">
             </form>
             <div class="mt-4 mb-4">
-                <a class="btn btn-info pr-5 pl-5" href="{% url 'password_change' %}">Change password</a>
+                <a class="btn btn-info pr-5 pl-5" href="{% url 'password_change' %}">{% trans 'Change password' %}</a>
             </div>
         </div>
 
         <div class="col-lg-6">
-            <h5 class="title-bg">Last comments</h5>
+            <h5 class="title-bg">{% trans 'Last comments' %}</h5>
             {% for comment in last_comments %}
                 <div class="media comment-section mb-3 bg-light pr-2">
                     <div class="media-body">
@@ -40,7 +41,7 @@
 
     <div class="row mb-5">
         <div class="col-lg-12">
-            <h5 class="title-bg">Favorite posts:</h5>
+            <h5 class="title-bg">{% trans 'Favorite posts:' %}</h5>
             {% for post in favorite %}
                 <div class="media mb-2" style="background: #f8f8f8;">
                   <img src="{{ post.image.url }}" class="align-self-start m-2" alt="..." style="height: 80px; width: 80px;">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 10:29+0200\n"
+"POT-Creation-Date: 2020-01-27 15:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,79 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: account/templates/account/login.html:8
+msgid "You can login with your username or email adress"
+msgstr ""
+
+#: account/templates/account/login.html:16
+msgid "Dont have account? You can register"
+msgstr ""
+
+#: account/templates/account/login.html:16
+#: account/templates/account/logout.html:6
+#: account/templates/account/registration.html:13
+msgid "Here"
+msgstr ""
+
+#: account/templates/account/login.html:19
+msgid "Forgot your password?"
+msgstr ""
+
+#: account/templates/account/login.html:19
+msgid "Reset password"
+msgstr ""
+
+#: account/templates/account/login.html:23
+#: account/templates/account/registration.html:17
+msgid "Or you can login with Google"
+msgstr ""
+
+#: account/templates/account/login.html:25
+#: account/templates/account/registration.html:19
+msgid "Login with google"
+msgstr ""
+
+#: account/templates/account/logout.html:4
+msgid "You have been loged out."
+msgstr ""
+
+#: account/templates/account/logout.html:6
+msgid "You can login"
+msgstr ""
+
+#: account/templates/account/password_change_done.html:4
+msgid "Password have been changed"
+msgstr ""
+
+#: account/templates/account/password_reset_complete.html:4
+msgid "Your password has been successfully reset."
+msgstr ""
+
+#: account/templates/account/password_reset_done.html:3
+msgid "Email has been send to your email adress"
+msgstr ""
+
+#: account/templates/account/profile.html:9
+msgid "Profile info"
+msgstr ""
+
+#: account/templates/account/profile.html:18
+msgid "Change password"
+msgstr ""
+
+#: account/templates/account/profile.html:23
+#: blog/templates/blog/sidebar.html:22
+msgid "Last comments"
+msgstr ""
+
+#: account/templates/account/profile.html:44
+msgid "Favorite posts:"
+msgstr ""
+
+#: account/templates/account/registration.html:13
+msgid "Already have an account? You can login"
+msgstr ""
 
 #: blog/templates/blog/contact.html:5
 msgid "Contact Us"
@@ -97,10 +170,6 @@ msgstr ""
 
 #: blog/templates/blog/sidebar.html:9
 msgid "Most popular"
-msgstr ""
-
-#: blog/templates/blog/sidebar.html:22
-msgid "Last comments"
 msgstr ""
 
 #: blog/templates/blog/sidebar.html:32

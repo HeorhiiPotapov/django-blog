@@ -1,10 +1,11 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <p>You can login with your username or email adress</p>
+            <p>{% trans 'You can login with your username or email adress' %}</p>
             <form method="post">
                 {% csrf_token %}
                 {{ form|crispy }}
@@ -12,16 +13,16 @@
                 <input type="submit" value="login">
             </form>
             <div class="mt-4">
-                <p>Dont have account? You can register <a href="{% url 'register' %}">Here</a></p>
+                <p>{% trans 'Dont have account? You can register' %} <a href="{% url 'register' %}">{% trans 'Here' %}</a></p>
             </div>
             <div class="mt-4">
-                <p>Forgot your password? <a href="{% url 'password_reset' %}">Reset password</a></p>
+                <p>{% trans 'Forgot your password?' %} <a href="{% url 'password_reset' %}">{% trans 'Reset password' %}</a></p>
             </div>
         </div>
         <div class="col-lg-6">
-            <p>Or you can login with Google</p>
+            <p>{% trans 'Or you can login with Google' %}</p>
             <div>
-                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">Login with google</a>
+                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">{% trans 'Login with google' %}</a>
             </div>
         </div>
     </div>
