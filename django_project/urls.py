@@ -24,13 +24,14 @@ from account import views as user_views
 # have question about this import
 # from django.contrib.auth.views import logout_then_login
 from blog import views
+from django.conf.urls.i18n import i18n_patterns
 
 
 sitemaps = {
     'posts': PostSitemap,
 }
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     # ===================================================================
     # authentication
@@ -67,6 +68,7 @@ urlpatterns = [
          name='password_reset_complete'),
     # end password_reset
     # =======================================================================
+    path('rosetta/', include('rosetta.urls')),
     path('blog/', include('blog.urls')),
     path('galery/', include('galery.urls')),
     path('', views.home_page, name='home_page'),
@@ -74,7 +76,7 @@ urlpatterns = [
     # =======================================================================
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
-]
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

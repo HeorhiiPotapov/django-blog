@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-27 10:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: blog/templates/blog/contact.html:5
+msgid "Contact Us"
+msgstr "Контакты"
+
+#: blog/templates/blog/contact.html:9
+msgid "Send"
+msgstr "Отправить"
+
+#: blog/templates/blog/footer.html:7
+msgid "About Us"
+msgstr "О Нас"
+
+#: blog/templates/blog/footer.html:19
+msgid "Latest comments"
+msgstr "Последние комментарии"
+
+#: blog/templates/blog/footer.html:28
+msgid "Latest Posts"
+msgstr "Последние публикации"
+
+#: blog/templates/blog/footer.html:37 blog/templates/blog/footer.html:55
+#: blog/templates/blog/navbar.html:13
+msgid "Galery"
+msgstr "Галерея"
+
+#: blog/templates/blog/footer.html:53 blog/templates/blog/navbar.html:11
+msgid "Home"
+msgstr "Главная"
+
+#: blog/templates/blog/footer.html:54 blog/templates/blog/navbar.html:12
+msgid "Blog"
+msgstr "Блог"
+
+#: blog/templates/blog/footer.html:56 blog/templates/blog/navbar.html:14
+msgid "Contact"
+msgstr "Контакты"
+
+#: blog/templates/blog/home_page.html:52
+msgid "Our latest posts"
+msgstr "Наши последние публикации"
+
+#: blog/templates/blog/home_page.html:71
+msgid "Our latest photos"
+msgstr "Наши последние фото"
+
+#: blog/templates/blog/home_page.html:88
+msgid "Latest comment"
+msgstr "Последние комментарии"
+
+#: blog/templates/blog/home_page.html:100
+msgid "Author"
+msgstr "Автор"
+
+#: blog/templates/blog/navbar.html:16
+msgid "Logout"
+msgstr "Выход"
+
+#: blog/templates/blog/navbar.html:19
+msgid "Login"
+msgstr "Вход"
+
+#: blog/templates/blog/navbar.html:20
+msgid "Register"
+msgstr "Регистрация"
+
+#: blog/templates/blog/search.html:7
+msgid "Search results"
+msgstr "Резудьтаты поиска"
+
+#: blog/templates/blog/send_mail_success.html:4
+msgid "Your email been successfuly send!"
+msgstr "Ваше сообщение было успешно отправлено"
+
+#: blog/templates/blog/sidebar.html:7
+msgid "Last Posts"
+msgstr "Последнии публикации"
+
+#: blog/templates/blog/sidebar.html:9
+msgid "Most popular"
+msgstr "Наиболее популярные"
+
+#: blog/templates/blog/sidebar.html:22
+msgid "Last comments"
+msgstr "Последние комментарии"
+
+#: blog/templates/blog/sidebar.html:32
+msgid "Rss chanel"
+msgstr "Rss канал"
+
+#: blog/templates/blog/sidebar.html:34
+msgid "Tags"
+msgstr "Тэги"
+
+#: blog/templates/blog/sidebar.html:43
+msgid "Recomended Video"
+msgstr "Рекомендуемые видео"
+
+#: django_project/settings.py:131
+msgid "English"
+msgstr ""
+
+#: django_project/settings.py:132
+msgid "Russian"
+msgstr ""

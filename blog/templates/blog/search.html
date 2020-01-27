@@ -1,9 +1,10 @@
 {% extends 'blog/base.html' %}
 {% load blog_tags %}
 {% block title %}My Blog{% endblock title %}
+{% load i18n %}
 {% block content %}
     {% if tag %}
-        <h2>Search results</h2>
+        <h2>{% trans 'Search results' %}</h2>
     {% endif %}
     {% for post in object_list %}
         <div class="post_item">

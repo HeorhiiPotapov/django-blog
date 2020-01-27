@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load i18n %}
 <div class="row header">
     <div class="col-lg-5 logo">
         <img src="{% static 'blog/img/safety.png' %}" alt="">
@@ -8,17 +8,16 @@
     <div class="col-lg-7 navigation">
         <div class="navbar">
             <ul class="nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="{% url 'post_list' %}">Blog</a></li>
-                <li><a href="{% url 'images_list' %}">Galery</a></li>
-                <li><a href="{% url 'features' %}">Features</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="/">{% trans 'Home' %}</a></li>
+                <li><a href="{% url 'post_list' %}">{% trans 'Blog' %}</a></li>
+                <li><a href="{% url 'images_list' %}">{% trans 'Galery' %}</a></li>
+                <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
                 {% if request.user.is_authenticated %}
-                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                  <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
                   <li><a href="{% url 'profile' %}">{{ request.user.username }}</a></li>
                 {% else %}
-                  <li><a href="{% url 'login' %}">Login</a></li>
-                  <li><a href="{% url 'register' %}">Register</a></li>
+                  <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
+                  <li><a href="{% url 'register' %}">{% trans 'Register' %}</a></li>
                 {% endif %}
             </ul>
         </div>
