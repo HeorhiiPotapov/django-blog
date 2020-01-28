@@ -20,13 +20,13 @@
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="d-block w-100" src="{% static 'blog/img/slider-img-1.jpg' %}" alt="First slide">
+                      <img class="d-block w-100 carousel_img" src="{% static 'blog/img/ropenine.jpg' %}" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="{% static 'blog/img/slider-img-1.jpg' %}" alt="Second slide">
+                      <img class="d-block w-100 carousel_img" src="{% static 'blog/img/rope4.jpg' %}" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                      <img class="d-block w-100" src="{% static 'blog/img/slider-img-1.jpg' %}" alt="Third slide">
+                      <img class="d-block w-100 carousel_img" src="{% static 'blog/img/ropesix.jpg' %}" alt="Third slide">
                     </div>
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -40,10 +40,10 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h4 class="mb-5 mt-3">{% trans 'Solutions in rope access works' %}</h4>
+                <h4 class="mb-5">{% trans 'Solutions in rope access works' %}</h4>
                 <p class="mb-4">{% trans 'It is known that when working at heights, the level of risk is quite high. This project was created to promote labor protection rules.' %}</p>
                 <p><small>{% trans 'We hope that our publications and materials will be useful and help to make work at altitude safer' %}</small></p>
-                <a class="carousel_text_right" href="{% url 'features' %}"><i class="fas fa-plus-circle"></i><small>{% trans 'Read more' %}</small></a>
+                <a class="carousel_text_right" href="{% url 'post_list' %}"><i class="fas fa-plus-circle"></i><small>{% trans 'Read more' %}</small></a>
             </div>
         </div>
         <div class="row mt-5">
@@ -109,6 +109,13 @@
     </div>
 
 {% include 'blog/footer.html' %}
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
