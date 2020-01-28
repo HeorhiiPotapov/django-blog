@@ -8,21 +8,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 15:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2020-01-27 20:39+0000\n"
+"PO-Revision-Date: 2020-01-27 20:42+0000\n"
+"Last-Translator: b'  <bayje13@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Translated-Using: django-rosetta 0.9.3\n"
+
+#: account/forms.py:29
+msgid "image"
+msgstr "Изображение"
+
+#: account/forms.py:30
+msgid "description"
+msgstr "Описание"
 
 #: account/templates/account/login.html:8
 msgid "You can login with your username or email adress"
 msgstr "для входа введите имя пользователя или адресс электронной почты"
+
+#: account/templates/account/login.html:13
+#| msgid "Login"
+msgid "login"
+msgstr "Вход"
 
 #: account/templates/account/login.html:16
 msgid "Dont have account? You can register"
@@ -30,7 +42,7 @@ msgstr "Еще не создан профиль? вы можете зареги�
 
 #: account/templates/account/login.html:16
 #: account/templates/account/logout.html:6
-#: account/templates/account/registration.html:13
+#: account/templates/account/registration.html:14
 msgid "Here"
 msgstr "Здесь"
 
@@ -39,16 +51,18 @@ msgid "Forgot your password?"
 msgstr "Забыли пароль?"
 
 #: account/templates/account/login.html:19
+#: account/templates/account/password_reset.html:7
+#: account/templates/account/password_reset_confirm.html:7
 msgid "Reset password"
 msgstr "Восстановление пароля"
 
 #: account/templates/account/login.html:23
-#: account/templates/account/registration.html:17
+#: account/templates/account/registration.html:18
 msgid "Or you can login with Google"
 msgstr "Также вы можете войти с помощью учетной записи Google"
 
 #: account/templates/account/login.html:25
-#: account/templates/account/registration.html:19
+#: account/templates/account/registration.html:20
 msgid "Login with google"
 msgstr "Войти через Google"
 
@@ -60,23 +74,29 @@ msgstr "Вы вышли из своего профиля."
 msgid "You can login"
 msgstr "Вы можете войти"
 
+#: account/templates/account/password_change.html:7
+msgid "change password"
+msgstr "Изменить пароль"
+
 #: account/templates/account/password_change_done.html:4
 msgid "Password have been changed"
 msgstr "Пароль был изменен"
 
 #: account/templates/account/password_reset_complete.html:4
-#, fuzzy
-#| msgid "Your email been successfuly send!"
-msgid "Your password has been successfully reset."
+msgid "Your password has been successfuly reset."
 msgstr "Ваше сообщение было успешно отправлено"
 
-#: account/templates/account/password_reset_done.html:3
+#: account/templates/account/password_reset_done.html:4
 msgid "Email has been send to your email adress"
 msgstr "Письмо отправлено на ваш почтовый адресс"
 
 #: account/templates/account/profile.html:9
 msgid "Profile info"
 msgstr "Информация профиля"
+
+#: account/templates/account/profile.html:15
+msgid "Update"
+msgstr "Обновить"
 
 #: account/templates/account/profile.html:18
 msgid "Change password"
@@ -91,9 +111,26 @@ msgstr "Последние комментарии"
 msgid "Favorite posts:"
 msgstr "Популярные статьи:"
 
-#: account/templates/account/registration.html:13
+#: account/templates/account/registration.html:11
+#: blog/templates/blog/navbar.html:20
+msgid "Register"
+msgstr "Регистрация"
+
+#: account/templates/account/registration.html:14
 msgid "Already have an account? You can login"
 msgstr "Уже есть учетная запись? Тогда вы можете войти"
+
+#: blog/forms.py:6
+msgid "Your email"
+msgstr "Ваш email"
+
+#: blog/forms.py:7
+msgid "Name"
+msgstr "Имя"
+
+#: blog/forms.py:8
+msgid "Message"
+msgstr "Сообщение"
 
 #: blog/templates/blog/contact.html:5
 msgid "Contact Us"
@@ -132,19 +169,45 @@ msgstr "Блог"
 msgid "Contact"
 msgstr "Контакты"
 
-#: blog/templates/blog/home_page.html:52
+#: blog/templates/blog/home_page.html:43
+msgid "Solutions in rope access works"
+msgstr "Решения в мире высотных работ"
+
+#: blog/templates/blog/home_page.html:44
+msgid ""
+"It is known that when working at heights, the level of risk is quite high. "
+"This project was created to promote labor protection rules."
+msgstr ""
+"Известно что при проведении высотных работ степень риска достаточно высока. "
+"Этот проект создан для продвижения способов безопасного выполнения работ на "
+"высоте."
+
+#: blog/templates/blog/home_page.html:45
+msgid ""
+"We hope that our publications and materials will be useful and help to make "
+"work at altitude safer"
+msgstr ""
+"Мы надеемся что опубликованные материалы будут полезны, и помогут "
+"организоватьработу на высоте еще безопаснее."
+
+#: blog/templates/blog/home_page.html:46 blog/templates/blog/post/list.html:24
+#: blog/templates/blog/search.html:23
+msgid "Read more"
+msgstr "Читать дальше"
+
+#: blog/templates/blog/home_page.html:51
 msgid "Our latest posts"
 msgstr "Наши последние публикации"
 
-#: blog/templates/blog/home_page.html:71
+#: blog/templates/blog/home_page.html:70
 msgid "Our latest photos"
 msgstr "Наши последние фото"
 
-#: blog/templates/blog/home_page.html:88
+#: blog/templates/blog/home_page.html:87
 msgid "Latest comment"
 msgstr "Последние комментарии"
 
-#: blog/templates/blog/home_page.html:100
+#: blog/templates/blog/home_page.html:99
 msgid "Author"
 msgstr "Автор"
 
@@ -156,21 +219,49 @@ msgstr "Выход"
 msgid "Login"
 msgstr "Вход"
 
-#: blog/templates/blog/navbar.html:20
-msgid "Register"
-msgstr "Регистрация"
+#: blog/templates/blog/post/detail.html:32
+msgid "About author"
+msgstr "Об авторе"
+
+#: blog/templates/blog/post/detail.html:37
+msgid "Similar posts"
+msgstr "Рекомендуемые статьи"
+
+#: blog/templates/blog/post/detail.html:50
+msgid "There are no similar posts yet."
+msgstr "Пока нет Рекомендаций к этой статье"
+
+#: blog/templates/blog/post/detail.html:68
+msgid "There are no comments yet."
+msgstr "Здесь пока нет комментариев"
+
+#: blog/templates/blog/post/detail.html:72
+msgid "Add new comment"
+msgstr "Последние комментарии"
+
+#: blog/templates/blog/post/detail.html:81
+msgid "New comment"
+msgstr "Последние комментарии"
+
+#: blog/templates/blog/post/list.html:7
+msgid "Posts tagged with"
+msgstr "Поиск статей по тэгу"
 
 #: blog/templates/blog/search.html:7
 msgid "Search results"
-msgstr "Резудьтаты поиска"
+msgstr "Результаты поиска"
 
 #: blog/templates/blog/send_mail_success.html:4
 msgid "Your email been successfuly send!"
 msgstr "Ваше сообщение было успешно отправлено"
 
+#: blog/templates/blog/sidebar.html:4
+msgid "Search"
+msgstr "Поиск"
+
 #: blog/templates/blog/sidebar.html:7
 msgid "Last Posts"
-msgstr "Последнии публикации"
+msgstr "Последние публикации"
 
 #: blog/templates/blog/sidebar.html:9
 msgid "Most popular"
@@ -180,6 +271,10 @@ msgstr "Наиболее популярные"
 msgid "Rss chanel"
 msgstr "Rss канал"
 
+#: blog/templates/blog/sidebar.html:33
+msgid "Subscribe to my RSS feed"
+msgstr "Подписывайтесь на наш Rss канал"
+
 #: blog/templates/blog/sidebar.html:34
 msgid "Tags"
 msgstr "Тэги"
@@ -188,10 +283,10 @@ msgstr "Тэги"
 msgid "Recomended Video"
 msgstr "Рекомендуемые видео"
 
-#: django_project/settings.py:131
+#: django_project/settings.py:132
 msgid "English"
 msgstr ""
 
-#: django_project/settings.py:132
+#: django_project/settings.py:133
 msgid "Russian"
 msgstr ""

@@ -12,7 +12,7 @@
                 {% csrf_token %}
                 {{ user_form|crispy }}
                 {{ profile_form|crispy }}
-                <input type="submit" name="" value="Update">
+                <input type="submit" name="" value="{% trans 'Update' %}">
             </form>
             <div class="mt-4 mb-4">
                 <a class="btn btn-info pr-5 pl-5" href="{% url 'password_change' %}">{% trans 'Change password' %}</a>

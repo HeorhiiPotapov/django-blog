@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 15:29+0200\n"
+"POT-Creation-Date: 2020-01-27 20:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,8 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: account/forms.py:29
+msgid "image"
+msgstr ""
+
+#: account/forms.py:30
+msgid "description"
+msgstr ""
+
 #: account/templates/account/login.html:8
 msgid "You can login with your username or email adress"
+msgstr ""
+
+#: account/templates/account/login.html:13
+msgid "login"
 msgstr ""
 
 #: account/templates/account/login.html:16
@@ -28,7 +40,7 @@ msgstr ""
 
 #: account/templates/account/login.html:16
 #: account/templates/account/logout.html:6
-#: account/templates/account/registration.html:13
+#: account/templates/account/registration.html:14
 msgid "Here"
 msgstr ""
 
@@ -37,16 +49,18 @@ msgid "Forgot your password?"
 msgstr ""
 
 #: account/templates/account/login.html:19
+#: account/templates/account/password_reset.html:7
+#: account/templates/account/password_reset_confirm.html:7
 msgid "Reset password"
 msgstr ""
 
 #: account/templates/account/login.html:23
-#: account/templates/account/registration.html:17
+#: account/templates/account/registration.html:18
 msgid "Or you can login with Google"
 msgstr ""
 
 #: account/templates/account/login.html:25
-#: account/templates/account/registration.html:19
+#: account/templates/account/registration.html:20
 msgid "Login with google"
 msgstr ""
 
@@ -58,20 +72,28 @@ msgstr ""
 msgid "You can login"
 msgstr ""
 
+#: account/templates/account/password_change.html:7
+msgid "change password"
+msgstr ""
+
 #: account/templates/account/password_change_done.html:4
 msgid "Password have been changed"
 msgstr ""
 
 #: account/templates/account/password_reset_complete.html:4
-msgid "Your password has been successfully reset."
+msgid "Your password has been successfuly reset."
 msgstr ""
 
-#: account/templates/account/password_reset_done.html:3
+#: account/templates/account/password_reset_done.html:4
 msgid "Email has been send to your email adress"
 msgstr ""
 
 #: account/templates/account/profile.html:9
 msgid "Profile info"
+msgstr ""
+
+#: account/templates/account/profile.html:15
+msgid "Update"
 msgstr ""
 
 #: account/templates/account/profile.html:18
@@ -87,8 +109,25 @@ msgstr ""
 msgid "Favorite posts:"
 msgstr ""
 
-#: account/templates/account/registration.html:13
+#: account/templates/account/registration.html:11
+#: blog/templates/blog/navbar.html:20
+msgid "Register"
+msgstr ""
+
+#: account/templates/account/registration.html:14
 msgid "Already have an account? You can login"
+msgstr ""
+
+#: blog/forms.py:6
+msgid "Your email"
+msgstr ""
+
+#: blog/forms.py:7
+msgid "Name"
+msgstr ""
+
+#: blog/forms.py:8
+msgid "Message"
 msgstr ""
 
 #: blog/templates/blog/contact.html:5
@@ -128,19 +167,40 @@ msgstr ""
 msgid "Contact"
 msgstr ""
 
-#: blog/templates/blog/home_page.html:52
+#: blog/templates/blog/home_page.html:43
+msgid "Solutions in rope access works"
+msgstr ""
+
+#: blog/templates/blog/home_page.html:44
+msgid ""
+"It is known that when working at heights, the level of risk is quite high. "
+"This project was created to promote labor protection rules."
+msgstr ""
+
+#: blog/templates/blog/home_page.html:45
+msgid ""
+"We hope that our publications and materials will be useful and help to make "
+"work at altitude safer"
+msgstr ""
+
+#: blog/templates/blog/home_page.html:46 blog/templates/blog/post/list.html:24
+#: blog/templates/blog/search.html:23
+msgid "Read more"
+msgstr ""
+
+#: blog/templates/blog/home_page.html:51
 msgid "Our latest posts"
 msgstr ""
 
-#: blog/templates/blog/home_page.html:71
+#: blog/templates/blog/home_page.html:70
 msgid "Our latest photos"
 msgstr ""
 
-#: blog/templates/blog/home_page.html:88
+#: blog/templates/blog/home_page.html:87
 msgid "Latest comment"
 msgstr ""
 
-#: blog/templates/blog/home_page.html:100
+#: blog/templates/blog/home_page.html:99
 msgid "Author"
 msgstr ""
 
@@ -152,8 +212,32 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: blog/templates/blog/navbar.html:20
-msgid "Register"
+#: blog/templates/blog/post/detail.html:32
+msgid "About author"
+msgstr ""
+
+#: blog/templates/blog/post/detail.html:37
+msgid "Similar posts"
+msgstr ""
+
+#: blog/templates/blog/post/detail.html:50
+msgid "There are no similar posts yet."
+msgstr ""
+
+#: blog/templates/blog/post/detail.html:68
+msgid "There are no comments yet."
+msgstr ""
+
+#: blog/templates/blog/post/detail.html:72
+msgid "Add new comment"
+msgstr ""
+
+#: blog/templates/blog/post/detail.html:81
+msgid "New comment"
+msgstr ""
+
+#: blog/templates/blog/post/list.html:7
+msgid "Posts tagged with"
 msgstr ""
 
 #: blog/templates/blog/search.html:7
@@ -162,6 +246,10 @@ msgstr ""
 
 #: blog/templates/blog/send_mail_success.html:4
 msgid "Your email been successfuly send!"
+msgstr ""
+
+#: blog/templates/blog/sidebar.html:4
+msgid "Search"
 msgstr ""
 
 #: blog/templates/blog/sidebar.html:7
@@ -176,6 +264,10 @@ msgstr ""
 msgid "Rss chanel"
 msgstr ""
 
+#: blog/templates/blog/sidebar.html:33
+msgid "Subscribe to my RSS feed"
+msgstr ""
+
 #: blog/templates/blog/sidebar.html:34
 msgid "Tags"
 msgstr ""
@@ -184,10 +276,10 @@ msgstr ""
 msgid "Recomended Video"
 msgstr ""
 
-#: django_project/settings.py:131
+#: django_project/settings.py:132
 msgid "English"
 msgstr ""
 
-#: django_project/settings.py:132
+#: django_project/settings.py:133
 msgid "Russian"
 msgstr ""

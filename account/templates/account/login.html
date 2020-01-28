@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <input type="hidden" name="next" value="{{ next }}"/>
-                <input type="submit" value="login">
+                <input type="submit" value="{% trans 'login' %}">
             </form>
             <div class="mt-4">
                 <p>{% trans 'Dont have account? You can register' %} <a href="{% url 'register' %}">{% trans 'Here' %}</a></p>

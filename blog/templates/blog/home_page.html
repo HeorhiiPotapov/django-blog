@@ -40,11 +40,10 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h4 class="mb-4">some text here <br>
-                title for home page here</h4>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium vulputate magna sit amet blandit.</p>
-                <p><small>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. In sit amet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</small></p>
-                <a class="carousel_text_right" href="{% url 'features' %}"><i class="fas fa-plus-circle"></i><small>Read more</small></a>
+                <h4 class="mb-5 mt-3">{% trans 'Solutions in rope access works' %}</h4>
+                <p class="mb-4">{% trans 'It is known that when working at heights, the level of risk is quite high. This project was created to promote labor protection rules.' %}</p>
+                <p><small>{% trans 'We hope that our publications and materials will be useful and help to make work at altitude safer' %}</small></p>
+                <a class="carousel_text_right" href="{% url 'features' %}"><i class="fas fa-plus-circle"></i><small>{% trans 'Read more' %}</small></a>
             </div>
         </div>
         <div class="row mt-5">

@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load blog_tags %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% block title %}{{ post.title }}{% endblock title %}
 {% block content %}
@@ -28,12 +29,12 @@
     <div class="media description">
         <img class="profile-image align-middle" src="{{ post.author.profile.image.url }}" alt="">
         <div class="media-body mt-2">
-            <h5>About {{ post.author }}</h5>
+            <h5>{% trans 'About author' %} {{ post.author }}</h5>
             <p>{{ post.author.profile.description }}</p>
         </div>
     </div>
 
-    <h4 class="similar_posts">Similar posts</h4>
+    <h4 class="similar_posts">{% trans 'Similar posts' %}</h4>
     <div class="row mb-5">
         {% for post in similar_posts %}
             <div class="col-lg-3 mb-2">
@@ -46,7 +47,7 @@
                 </div>
             </div>
         {% empty %}
-            <p>There are no similar posts yet.</p>
+            <p>{% trans 'There are no similar posts yet.' %}</p>
         {% endfor %}
     </div>
 
@@ -64,11 +65,11 @@
                     <div class="comment-content">{{ comment.body }}</div>
                 </div>
             {% empty %}
-                <p>There are no comments yet.</p>
+                <p>{% trans 'There are no comments yet.' %}</p>
             {% endfor %}
         </div>
         <div class="col-lg-9">
-            <h6 class="comment_form">Add new comment</h6>
+            <h6 class="comment_form">{% trans 'Add new comment' %}</h6>
             {% if not user.is_authenticated %}
                 <div class="alert alert-success" role="alert">
                     Only authenticated user can leave a comments.
@@ -77,7 +78,7 @@
             <form action="." method="post" class="mb-5">
                 {{ comment_form|crispy }}
                 {% csrf_token %}
-                <button class="btn btn-success" type="submit" value="Add comment">new comment</button>
+                <button class="btn btn-success" type="submit" value="Add comment">{% trans 'New comment' %}</button>
             </form>
         </div>
     </div>

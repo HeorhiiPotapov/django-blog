@@ -1,7 +1,7 @@
 {% load blog_tags %}
 {% load i18n %}
 <form class="input-group my-2 my-lg-0" action="{% url 'search' %}">
-    <input type="text" class="form-control" name="q" placeholder="Search">
+    <input type="text" class="form-control" name="q" placeholder="{% trans 'Search' %}">
     <button class="btn my-sm-0 border" type="submit" style="background: #00ffff;"><i class="fas fa-search"></i></button>
 </form>
 <h5 class="title-bg">{% trans 'Last Posts' %}</h5>
@@ -30,7 +30,7 @@
     </div>
 {% endfor %}
 <h5 class="title-bg">{% trans 'Rss chanel' %}</h5>
-  <i class="fas fa-rss"></i><p class="d-inline-block"><a class="rss_chanel" href="{% url 'post_feed' %}">Subscribe to my RSS feed</a></p>
+  <i class="fas fa-rss"></i><p class="d-inline-block"><a class="rss_chanel" href="{% url 'post_feed' %}">{% trans 'Subscribe to my RSS feed' %}</a></p>
 <h5 class="title-bg">{% trans 'Tags' %}</h5>
 {% get_sidebar_tags as sidebar_tags %}
 <div class="sidebar_tags">

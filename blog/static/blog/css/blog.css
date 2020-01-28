@@ -16,6 +16,27 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0.5), 0 0 1px #fdfdfd;}
 
+.language_btn {
+	background: #f8f8f8;
+	border: 1px dotted #a9a9a9;
+	font-family: "Oswald", sans-serif;
+	font-weight: normal;
+	text-shadow: none;
+	text-transform: uppercase;
+	color: #222;
+	font-size: 12px;
+	padding: 20px 10px 10px 10px;
+	margin: 20px 10px 0 0;
+}
+
+.language_btn:hover, .language_btn:active {
+	color:#FFF;
+	background-color:#d8450b;
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
 .logo { margin-top:40px; }
 .logo img {
 	margin-right:15px;
@@ -34,7 +55,6 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
 
 .row.header {margin-bottom: 40px;}
 
-/* Landscape phones and down */
 @media (max-width: 480px) {
 	.logo, .navigation {text-align: center;}
 	.row.header {margin-bottom: 30px;}
@@ -50,7 +70,6 @@ h1, h2, h3, h4, h5 {text-shadow: 1px 1px 0 #fdfdfd, 2px 2px 0 rgba(81, 81, 81, 0
 .navigation .navbar {
 	float:right;
 	background: #f8f8f8;
-	/* background:#fff; */
 	border-bottom: 1px dotted #a9a9a9;
 	border-top: 1px dotted #a9a9a9;
 }

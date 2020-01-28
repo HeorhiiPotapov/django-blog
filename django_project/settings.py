@@ -125,6 +125,7 @@ AUTHENTICATION_BACKENDS = (
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
+
 LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
@@ -172,4 +173,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 DROPBOX_OAUTH2_TOKEN = os.environ.get('MYSITE_BLOG_DROPBOX_TOKEN')
 DROPBOX_ROOT_PATH = '/'
+
 django_heroku.settings(locals())
