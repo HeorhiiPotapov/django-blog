@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load i18n %}
 {% load blog_tags %}
 <html lang="en">
 <head>
@@ -83,7 +84,7 @@
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <h5 class="title-bg">Последнией комментарии</h5>
+                <h5 class="title-bg">Последние комментарии</h5>
                 {% get_latest_comments as latest_comments %}
                 {% for comment in latest_comments %}
                     <div class="comment">
