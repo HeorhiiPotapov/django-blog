@@ -1,10 +1,9 @@
 {% extends 'blog/base.html' %}
 {% load blog_tags %}
 {% block title %}My Blog{% endblock title %}
-{% load i18n %}
 {% block content %}
     {% if tag %}
-        <h2>{% trans 'Search results' %}</h2>
+        <h2>Результаты поиска</h2>
     {% endif %}
     {% for post in object_list %}
         <div class="post_item">
@@ -20,7 +19,7 @@
                         <a href="{% url 'post_list_by_tag' tag.slug %}">{{ tag.name }}{% if not forloop.last %}, {% endif %}</a>
                     {% endfor %}
                 </p>
-                {{ post.body|markdown|truncatewords_html:50 }} <a href="{{ post.get_absolute_url }}">{% trans 'Read more' %}</a>
+                {{ post.body|markdown|truncatewords_html:50 }} <a href="{{ post.get_absolute_url }}">Читать дальше</a>
 
                 <div class="d-flex post_footer">
                     <p class="publish ml-auto"><i class="far fa-calendar-check"></i>{{ post.publish }}</p>

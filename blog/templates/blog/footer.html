@@ -1,10 +1,9 @@
 {% load blog_tags %}
-{% load i18n %}
 <div class="footer-container"><!-- Begin Footer -->
 	<div class="container">
     	<div class="row footer-row">
             <div class="col-lg-3 footer-col">
-                <h5>{% trans 'About Us' %}</h5>
+                <h5>О нас</h5>
                 <address>
                     <strong>Designed by:</strong><br />
                     Indastrial safety solutions<br />
@@ -16,7 +15,7 @@
                 <a href="#"><i class="fab fa-github-square"></i></a>
             </div>
             <div class="col-lg-3 footer-col">
-                <h5>{% trans 'Latest comments' %}</h5>
+                <h5>Последние комментарии</h5>
                 {% get_latest_comments as latest_comments %}
                 {% for comment in latest_comments %}
                     <ul>
@@ -25,7 +24,7 @@
                 {% endfor %}
             </div>
             <div class="col-lg-3 footer-col">
-                <h5>{% trans 'Latest Posts' %}</h5>
+                <h5>Последние статьи</h5>
                 {% get_most_commented_posts as most_commented_posts %}
                 {% for post in most_commented_posts %}
                 <ul class="post-list">
@@ -34,7 +33,7 @@
                 {% endfor %}
             </div>
             <div class="col-lg-3 footer-col">
-                <h5>{% trans 'Galery' %}</h5>
+                <h5>Галерея</h5>
 				{% get_latest_images as images %}
 				{% for image in images %}
 					<a href="{{ image.get_absolute_url }}">
@@ -50,10 +49,10 @@
                     <div class="span6"><span class="left">Copyright 2019 George Potapov. All rights reserved.</span></div>
                     <div class="span6">
                         <span class="right">
-	                        <a href="/">{% trans 'Home' %}</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-							<a href="{% url 'post_list' %}">{% trans 'Blog' %}</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-							<a href="{% url 'images_list' %}">{% trans 'Galery' %}</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-							<a href="{% url 'contact' %}">{% trans 'Contact' %}</a>
+	                        <a href="/">Главная</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+							<a href="{% url 'post_list' %}">Блог</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+							<a href="{% url 'images_list' %}">Галерея</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+							<a href="{% url 'contact' %}">Контакты</a>
                         </span>
                     </div>
                 </div>

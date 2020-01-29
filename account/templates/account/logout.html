@@ -1,8 +1,7 @@
 {% extends 'blog/base.html' %}
-{% load i18n %}
 {% block content %}
-    <h2>{% trans 'You have been loged out.' %}</h2>
+    <h2>Вы вышли из своего профиля.</h2>
     <div class="mt-4">
-        <p>{% trans 'You can login' %} <a href="{% url 'login' %}">{% trans 'Here' %}</a></p>
+        <p>Вы можете войти <a href="{% url 'login' %}">Здесь</a></p>
     </div>
 {% endblock content %}

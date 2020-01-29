@@ -1,17 +1,4 @@
 {% load static %}
-{% load i18n %}
-<div class="row pt-3 text-right">
-    <div class="col-lg-12">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% get_language_info_list for LANGUAGES as languages %}
-        {% for language in languages %}
-            <a class="language_btn" href="/{{ language.code }}/">
-                {{ language.name_local }}
-            </a>
-        {% endfor %}
-    </div>
-</div>
 <div class="row header">
     <div class="col-lg-5 logo">
         <img src="{% static 'blog/img/safety.png' %}" alt="">
@@ -20,16 +7,16 @@
     <div class="col-lg-7 navigation">
         <div class="navbar">
             <ul class="nav">
-                <li><a href="/">{% trans 'Home' %}</a></li>
-                <li><a href="{% url 'post_list' %}">{% trans 'Blog' %}</a></li>
-                <li><a href="{% url 'images_list' %}">{% trans 'Galery' %}</a></li>
-                <li><a href="{% url 'contact' %}">{% trans 'Contact' %}</a></li>
+                <li><a href="/">Главная</a></li>
+                <li><a href="{% url 'post_list' %}">Блог</a></li>
+                <li><a href="{% url 'images_list' %}">Галерея</a></li>
+                <li><a href="{% url 'contact' %}">Контакты</a></li>
                 {% if request.user.is_authenticated %}
-                  <li><a href="{% url 'logout' %}">{% trans 'Logout' %}</a></li>
+                  <li><a href="{% url 'logout' %}">Выход</a></li>
                   <li><a href="{% url 'profile' %}">{{ request.user.username }}</a></li>
                 {% else %}
-                  <li><a href="{% url 'login' %}">{% trans 'Login' %}</a></li>
-                  <li><a href="{% url 'register' %}">{% trans 'Register' %}</a></li>
+                  <li><a href="{% url 'login' %}">Вход</a></li>
+                  <li><a href="{% url 'register' %}">Регистрация</a></li>
                 {% endif %}
             </ul>
         </div>

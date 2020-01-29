@@ -1,10 +1,9 @@
 {% extends 'blog/base.html' %}
 {% load blog_tags %}
 {% block title %}My Blog{% endblock title %}
-{% load i18n %}
 {% block content %}
     {% if tag %}
-        <h2>{% trans 'Posts tagged with' %} "{{ tag.name }}"</h2>
+        <h2>Поиск статей по тэгу "{{ tag.name }}"</h2>
     {% endif %}
     {% for post in posts %}
         <div class="post_item">
@@ -21,7 +20,7 @@
                     {% endfor %}
                 </p>
                 {{ post.body|markdown|truncatewords_html:30 }}
-                <a class="carousel_text_right" href="{{ post.get_absolute_url }}"><i class="fas fa-plus-circle"></i><small>{% trans 'Read more' %}</small></a>
+                <a class="carousel_text_right" href="{{ post.get_absolute_url }}"><i class="fas fa-plus-circle"></i><small>Читать дальше</small></a>
 
                 <div class="d-flex post_footer">
                     <p class="publish ml-auto"><i class="far fa-calendar-check"></i>{{ post.publish }}</p>

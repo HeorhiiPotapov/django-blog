@@ -1,28 +1,27 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
-{% load i18n %}
 {% block content %}
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <p>{% trans 'You can login with your username or email adress' %}</p>
+            <p>Для входа введите имя пользователя или адресс электронной почты.</p>
             <form method="post">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <input type="hidden" name="next" value="{{ next }}"/>
-                <input type="submit" value="{% trans 'login' %}">
+                <input type="submit" value="Войти">
             </form>
             <div class="mt-4">
-                <p>{% trans 'Dont have account? You can register' %} <a href="{% url 'register' %}">{% trans 'Here' %}</a></p>
+                <p>Еще не создан профиль? вы можете зарегистрироваться <a href="{% url 'register' %}">Здесь</a></p>
             </div>
             <div class="mt-4">
-                <p>{% trans 'Forgot your password?' %} <a href="{% url 'password_reset' %}">{% trans 'Reset password' %}</a></p>
+                <p>Забыли пароль? <a href="{% url 'password_reset' %}">Восстановить пароль</a></p>
             </div>
         </div>
         <div class="col-lg-6">
-            <p>{% trans 'Or you can login with Google' %}</p>
+            <p>Также вы можете войти с помощью учетной записи Google</p>
             <div>
-                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">{% trans 'Login with google' %}</a>
+                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">Войти через Google</a>
             </div>
         </div>
     </div>

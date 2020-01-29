@@ -31,7 +31,7 @@ sitemaps = {
     'posts': PostSitemap,
 }
 
-urlpatterns = i18n_patterns(
+urlpatterns = [
     path('admin/', admin.site.urls),
     # ===================================================================
     # authentication
@@ -68,7 +68,6 @@ urlpatterns = i18n_patterns(
          name='password_reset_complete'),
     # end password_reset
     # =======================================================================
-    path('rosetta/', include('rosetta.urls')),
     path('blog/', include('blog.urls')),
     path('galery/', include('galery.urls')),
     path('', views.home_page, name='home_page'),
@@ -76,7 +75,7 @@ urlpatterns = i18n_patterns(
     # =======================================================================
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
-)
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

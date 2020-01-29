@@ -1,12 +1,11 @@
 {% load blog_tags %}
-{% load i18n %}
 <form class="input-group my-2 my-lg-0" action="{% url 'search' %}">
-    <input type="text" class="form-control" name="q" placeholder="{% trans 'Search' %}">
+    <input type="text" class="form-control" name="q" placeholder="Поиск">
     <button class="btn my-sm-0 border" type="submit" style="background: #00ffff;"><i class="fas fa-search"></i></button>
 </form>
-<h5 class="title-bg">{% trans 'Last Posts' %}</h5>
+<h5 class="title-bg">Последние статьи</h5>
 {% show_latest_posts %}
-<h5 class="title-bg">{% trans 'Most popular' %}</h5>
+<h5 class="title-bg">Популярные</h5>
 {% get_most_commented_posts as most_commented_posts %}
 {% for post in most_commented_posts %}
     <div class="media mb-2">
@@ -19,7 +18,7 @@
       </div>
     </div>
 {% endfor %}
-<h5 class="title-bg">{% trans 'Last comments' %}</h5>
+<h5 class="title-bg">Последние комментарии</h5>
 {% get_latest_comments as latest_comments %}
 {% for comment in latest_comments %}
     <div class="comment">
@@ -29,9 +28,9 @@
         <div class="comment-content">{{ comment.body|linebreaks }}</div>
     </div>
 {% endfor %}
-<h5 class="title-bg">{% trans 'Rss chanel' %}</h5>
-  <i class="fas fa-rss"></i><p class="d-inline-block"><a class="rss_chanel" href="{% url 'post_feed' %}">{% trans 'Subscribe to my RSS feed' %}</a></p>
-<h5 class="title-bg">{% trans 'Tags' %}</h5>
+<h5 class="title-bg">Rss канал</h5>
+  <i class="fas fa-rss"></i><p class="d-inline-block"><a class="rss_chanel" href="{% url 'post_feed' %}">Присоединяйтесь к нашему Rss каналу</a></p>
+<h5 class="title-bg">Тэги</h5>
 {% get_sidebar_tags as sidebar_tags %}
 <div class="sidebar_tags">
     <i class="fas fa-tags"></i>
@@ -40,7 +39,7 @@
         {% if not forloop.last %}, {% endif %}
     {% endfor %}
 </div>
-<h5 class="title-bg">{% trans 'Recomended Video' %}</h5>
+<h5 class="title-bg">Рекомендации</h5>
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Qp5KU-U9nII" allowfullscreen></iframe>
 </div>

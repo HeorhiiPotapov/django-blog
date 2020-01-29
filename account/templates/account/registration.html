@@ -1,5 +1,4 @@
 {% extends 'blog/base.html' %}
-{% load i18n %}
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
@@ -8,16 +7,16 @@
             <form action="." method="post">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <input type="submit" value="{% trans 'Register' %}">
+                <input type="submit" value="Регистрация">
             </form>
             <div class="mt-4">
-                <p>{% trans 'Already have an account? You can login' %} <a href="{% url 'login' %}">{% trans 'Here' %}</a></p>
+                <p>Уже есть аккаунт? Вы можете войти <a href="{% url 'login' %}">Здесь</a></p>
             </div>
         </div>
         <div class="col-lg-6">
-            <p>{% trans 'Or you can login with Google' %}</p>
+            <p>Также вы можете войти с помощью аккаунта Google</p>
             <div>
-                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">{% trans 'Login with google' %}</a>
+                <a class="btn btn-outline-success" href="{% url 'social:begin' 'google-oauth2' %}">Войти через Google</a>
             </div>
         </div>
     </div>

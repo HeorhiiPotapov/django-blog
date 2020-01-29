@@ -1,11 +1,10 @@
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-{% load i18n %}
-<h5 class="title-bg">{% trans 'Contact Us' %}</h5>
+<h5 class="title-bg">Форма для связи</h5>
 <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
-    <button class="btn btn-info mb-4" type="submit">{% trans 'Send' %}</button>
+    <button class="btn btn-info mb-4" type="submit">Отправить</button>
 </form>
 {% endblock %}

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 {% load blog_tags %}
-{% load i18n %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,15 +39,15 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h4 class="mb-5">{% trans 'Solutions in rope access works' %}</h4>
-                <p class="mb-4">{% trans 'It is known that when working at heights, the level of risk is quite high. This project was created to promote labor protection rules.' %}</p>
-                <p><small>{% trans 'We hope that our publications and materials will be useful and help to make work at altitude safer' %}</small></p>
-                <a class="carousel_text_right" href="{% url 'post_list' %}"><i class="fas fa-plus-circle"></i><small>{% trans 'Read more' %}</small></a>
+                <h4 class="mb-5">Решения в мире высотных работ</h4>
+                <p class="mb-4">Известно что при проведении высотных работ степень риска достаточно высока. Этот проект создан для продвижения способов безопасного выполнения работ на высоте.</p>
+                <p><small>Мы надеемся что опубликованные материалы будут полезны, и помогут организоватьработу на высоте еще безопаснее.</small></p>
+                <a class="carousel_text_right" href="{% url 'post_list' %}"><i class="fas fa-plus-circle"></i><small>Читать дальше</small></a>
             </div>
         </div>
         <div class="row mt-5">
             <div class="col-lg-12 latest_posts">
-                <h5 class="title-bg">{% trans 'Our latest posts' %}</h5>
+                <h5 class="title-bg">Наши последние публикации</h5>
             </div>
         </div>
         <div class="row justify-content-end mt-4">
@@ -67,7 +66,7 @@
         </div>
         <div class="row ">
             <div class="col-lg-12 latest_posts">
-                <h5 class="title-bg">{% trans 'Our latest photos' %}</h5>
+                <h5 class="title-bg">Наши последние фото</h5>
             </div>
         </div>
         <div class="row justify-content-end mt-4">
@@ -84,7 +83,7 @@
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <h5 class="title-bg">{% trans 'Latest comment' %}</h5>
+                <h5 class="title-bg">Последнией комментарии</h5>
                 {% get_latest_comments as latest_comments %}
                 {% for comment in latest_comments %}
                     <div class="comment">
@@ -96,7 +95,7 @@
                 {% endfor %}
             </div>
             <div class="col-lg-6">
-                <h5 class="title-bg">{% trans 'Author' %}</h5>
+                <h5 class="title-bg">Автор</h5>
                 <div class="media description">
                     <img class="profile-image align-middle" src="{{ author.profile.image.url }}" alt="">
                     <div class="media-body mt-2">

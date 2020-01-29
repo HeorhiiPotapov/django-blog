@@ -17,7 +17,6 @@ django-crispy-forms = "*"
 markdown = "*"
 dropbox = "*"
 django-storages = "*"
-django-rosetta = "*"
 
 [requires]
 python_version = "3.7"
