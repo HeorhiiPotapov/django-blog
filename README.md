@@ -1,1 +1,1 @@
-# safety-in-ua
+# blog app created with django framework
